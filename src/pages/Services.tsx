@@ -1,0 +1,234 @@
+
+import { Users, Zap, BarChart3, Target, ArrowRight, CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
+
+const Services = () => {
+  const services = [
+    {
+      icon: Users,
+      title: "Influencer Marketing",
+      description: "Connect with our network of 22,000+ verified creators across all major platforms and niches.",
+      features: [
+        "Creator matching & vetting",
+        "Campaign strategy development",
+        "Contract negotiation & management",
+        "Performance tracking & optimization"
+      ],
+      targetAudience: "E-commerce brands, SaaS companies, lifestyle products",
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop"
+    },
+    {
+      icon: Zap,
+      title: "UGC Content Production",
+      description: "Authentic user-generated content that builds trust and drives conversions for your brand.",
+      features: [
+        "Content brief development",
+        "Creator recruitment & onboarding",
+        "Quality assurance & editing",
+        "Multi-format content delivery"
+      ],
+      targetAudience: "Direct-to-consumer brands, mobile apps, subscription services",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop"
+    },
+    {
+      icon: BarChart3,
+      title: "Viral Content Production",
+      description: "Data-driven insights that optimize your campaigns and maximize ROI across all channels.",
+      features: [
+        "Real-time campaign monitoring",
+        "ROI tracking & attribution",
+        "Audience insights & demographics",
+        "Competitive analysis & benchmarking"
+      ],
+      targetAudience: "Growth-focused businesses, marketing teams, agencies",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop"
+    },
+    {
+      icon: Target,
+      title: "Content Strategy",
+      description: "Comprehensive content planning that aligns with your brand goals and audience preferences.",
+      features: [
+        "Audience research & persona development",
+        "Content calendar planning",
+        "Platform-specific optimization",
+        "Trend analysis & forecasting"
+      ],
+      targetAudience: "Established brands, startups, marketing departments",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+    },
+      {
+      icon: Target,
+      title: "Reel Script Writing (Any Niche)",
+      description: "Comprehensive content planning that aligns with your brand goals and audience preferences.",
+      features: [
+        "Audience research & persona development",
+        "Content calendar planning",
+        "Platform-specific optimization",
+        "Trend analysis & forecasting"
+      ],
+      targetAudience: "Established brands, startups, marketing departments",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+    },
+        {
+      icon: Target,
+      title: "Product Shoot (Add-on)",
+      description: "Comprehensive content planning that aligns with your brand goals and audience preferences.",
+      features: [
+        "Audience research & persona development",
+        "Content calendar planning",
+        "Platform-specific optimization",
+        "Trend analysis & forecasting"
+      ],
+      targetAudience: "Established brands, startups, marketing departments",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-black text-white">
+      <Navigation />
+      
+      {/* Hero Section */}
+      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-black via-gray-900 to-black">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            Services That
+            <span className="gold-gradient block mt-2">
+              Drive Results
+            </span>
+          </h1>
+          <p className="text-xl text-gray-300 leading-relaxed">
+            From strategy to execution, we provide end-to-end creator marketing solutions 
+            that connect your brand with authentic audiences and deliver measurable growth.
+          </p>
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="space-y-20">
+            {services.map((service, index) => (
+              <div key={index} className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
+                <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-lg flex items-center justify-center mr-4">
+                      <service.icon className="h-6 w-6 text-black" />
+                    </div>
+                    <h2 className="text-3xl font-bold text-white">{service.title}</h2>
+                  </div>
+                  
+                  <p className="text-lg text-gray-300 mb-8">{service.description}</p>
+                  
+                  <div className="mb-8">
+                    <h3 className="text-lg font-semibold text-white mb-4">What's Included:</h3>
+                    <ul className="space-y-3">
+                      {service.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center">
+                          <CheckCircle className="h-5 w-5 text-amber-400 mr-3 flex-shrink-0" />
+                          <span className="text-gray-300">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div className="mb-8">
+                    <h3 className="text-lg font-semibold text-white mb-2">Perfect For:</h3>
+                    <p className="text-gray-300">{service.targetAudience}</p>
+                  </div>
+                  
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button size="lg" className="bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-yellow-500 hover:to-amber-400 text-black font-bold">
+                      Get Started
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                    <Link to="/portfolio">
+                      <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white hover:text-black">
+                        View Case Studies
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+                
+                <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
+                  <div className="relative">
+                    <img 
+                      src={service.image}
+                      alt={service.title}
+                      className="rounded-2xl shadow-xl w-full border border-white/10"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-black">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Process</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              A proven methodology that ensures every campaign delivers exceptional results
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              { step: "01", title: "Discovery", description: "We dive deep into your brand, goals, and target audience" },
+              { step: "02", title: "Strategy", description: "Develop a comprehensive campaign strategy and creator matching" },
+              { step: "03", title: "Execution", description: "Launch campaigns with our vetted creators and manage every detail" },
+              { step: "04", title: "Optimization", description: "Monitor performance and optimize for maximum ROI and engagement" }
+            ].map((phase, index) => (
+              <Card key={index} className="bg-gradient-to-br from-gray-900 to-black border-white/10 hover:border-amber-400/30 transition-all duration-300 relative">
+                <CardContent className="p-8">
+                  <div className="text-3xl font-bold text-amber-400 mb-4">{phase.step}</div>
+                  <h3 className="text-xl font-bold text-white mb-3">{phase.title}</h3>
+                  <p className="text-gray-300">{phase.description}</p>
+                </CardContent>
+                {index < 3 && (
+                  <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-amber-400 to-yellow-500"></div>
+                )}
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-amber-400 to-yellow-500">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+            Ready to Amplify Your Brand?
+          </h2>
+          <p className="text-xl text-black/80 mb-8">
+            Let's discuss how our services can drive real results for your business.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/contact">
+              <Button size="lg" className="bg-black text-white hover:bg-gray-800">
+                Schedule Consultation
+              </Button>
+            </Link>
+            <Link to="/portfolio">
+              <Button size="lg" variant="outline" className="border-black text-black hover:bg-black hover:text-white">
+                View Our Work
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Services;
