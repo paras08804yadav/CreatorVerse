@@ -141,65 +141,6 @@ const Index = () => {
                 </Button>
               </div>
             </div>
-            
-            <div className="relative">
-              {/* Phone Mockup */}
-              <div className="relative mx-auto max-w-sm">
-                <div className="bg-gradient-to-br from-gray-900 to-black p-2 rounded-[2.5rem] border border-white/20 shadow-2xl">
-                  <div className="bg-black rounded-[2rem] p-4 relative overflow-hidden">
-                    {/* Phone UI Elements */}
-                    <div className="flex justify-center mb-4">
-                      <div className="w-16 h-1 bg-white/30 rounded-full"></div>
-                    </div>
-                    
-                    {/* Creator Photos Grid */}
-<div className="space-y-4">
-  <div className="flex justify-between items-center">
-    <h3 className="text-white font-semibold text-lg">Top Creators</h3>
-    <Phone className="h-5 w-5 text-amber-400" />
-  </div>
-
-  <div className="bg-gradient-to-br from-amber-400/10 to-yellow-500/10 p-5 rounded-2xl border border-white/10">
-    {/* Phone frame */}
-    <div className="relative mx-auto bg-black rounded-3xl w-[240px] h-[460px] shadow-inner shadow-black/30 p-4 flex flex-col justify-center gap-5">
-      {/* Creator 1 */}
-      <div className="flex flex-col items-center">
-        <img 
-          src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=100&h=100&fit=crop&crop=face"
-          alt="Creator 1"
-          className="w-20 h-20 rounded-full border-2 border-amber-400/40 mb-2"
-        />
-        <p className="text-white text-sm font-semibold">Sarah K.</p>
-        <p className="text-amber-400 text-xs">2.5M followers</p>
-      </div>
-
-      {/* Separator */}
-      <div className="border-t border-amber-400/30 w-2/3 mx-auto"></div>
-
-      {/* Creator 2 */}
-      <div className="flex flex-col items-center">
-        <img 
-          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
-          alt="Creator 2"
-          className="w-20 h-20 rounded-full border-2 border-amber-400/40 mb-2"
-        />
-        <p className="text-white text-sm font-semibold">Marcus R.</p>
-        <p className="text-amber-400 text-xs">1.8M followers</p>
-      </div>
-    </div>
-  </div>
-
-  <div className="bg-gradient-to-r from-amber-400 to-yellow-500 p-3 rounded-xl text-center">
-    <p className="text-black font-bold text-sm">25,000+ Premium Creators</p>
-    <p className="text-black/70 text-xs">Ready for your campaign</p>
-  </div>
-</div>
-
-                  </div>
-                </div>
-                
-              </div>
-            </div>
           </div>
         </div>
       </section>
