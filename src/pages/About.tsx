@@ -159,33 +159,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Recognition Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-amber-400 to-yellow-500">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            <Award className="w-16 h-16 text-black mx-auto mb-6" />
-            <h2 className="text-3xl font-bold text-black mb-4">Industry Recognition</h2>
-            <p className="text-xl text-black/80 mb-8 max-w-3xl mx-auto">
-              We're honored to be recognized as a leading innovator in the creator marketing space
-            </p>
-            <div className="grid md:grid-cols-3 gap-8 text-center">
-              <div>
-                <div className="text-2xl font-bold text-black mb-2">Best Agency 2024</div>
-                <div className="text-black/70">Creator Marketing Awards</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-black mb-2">Top 50 Startups</div>
-                <div className="text-black/70">Marketing Innovation List</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-black mb-2">4.9/5 Rating</div>
-                <div className="text-black/70">Client Satisfaction Score</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </div>
   );
