@@ -94,15 +94,22 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="pt-20 pb-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&h=1080&fit=crop&q=80"
-            alt="Professional team collaboration"
-            className="w-full h-full object-cover opacity-15"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/80 to-black/90"></div>
-        </div>
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-100"
+          poster="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&h=1080&fit=crop&q=80"
+        >
+          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/80 to-black/90" />
+      </div>
+
         
         {/* Gradient Overlays */}
         <div className="absolute inset-0 opacity-10 z-10">
