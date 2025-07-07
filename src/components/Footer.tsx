@@ -88,7 +88,7 @@ const Footer = () => {
                   to="/portfolio" 
                   className="text-gray-300 hover:text-amber-400 transition-colors duration-300 flex items-center group"
                 >
-                  Success Stories
+                  Case Study
                   <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                 </Link>
               </li>
@@ -109,21 +109,18 @@ const Footer = () => {
               Services
             </h3>
             <ul className="space-y-4">
-              <li className="text-gray-300">Elite Influencer Marketing</li>
-              <li className="text-gray-300">Premium UGC Production</li>
-              <li className="text-gray-300">Celebrity Partnerships</li>
-              <li className="text-gray-300">Global Campaign Management</li>
-              <li className="text-gray-300">Advanced Analytics & AI</li>
-              <li className="text-gray-300">Brand Strategy Consulting</li>
+              <li className="text-gray-300">Influencer Generated Content</li>
+              <li className="text-gray-300">User Generated Content Production</li>
+              <li className="text-gray-300">Viral Content Production</li>
+              <li className="text-gray-300">Content Strategy</li>
+              <li className="text-gray-300">Reel Script Writing </li>
+              <li className="text-gray-300">Product Shootc</li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-white/10 mt-16 pt-12 flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0">
           <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8">
-            <p className="text-gray-400 text-sm">
-              © 2024 CreatorVerse Premium Agency. All rights reserved.
-            </p>
             <div className="flex space-x-6">
               <a href="#" className="text-gray-400 hover:text-amber-400 text-sm transition-colors">
                 Privacy Policy
@@ -135,11 +132,6 @@ const Footer = () => {
                 Cookie Policy
               </a>
             </div>
-          </div>
-          
-          <div className="flex items-center space-x-2 text-sm text-gray-400">
-            <span>Powered by</span>
-            <span className="text-amber-400 font-semibold">Premium Technology</span>
           </div>
         </div>
       </div>
