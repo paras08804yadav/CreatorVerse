@@ -10,29 +10,29 @@ const Services = () => {
   const services = [
     {
       icon: Users,
-      title: "Influencer Marketing",
-      description: "Connect with our network of 22,000+ verified creators across all major platforms and niches.",
+      title: "Influencer Generated Content",
+      description: "Ignite your brand's presence with authentic influencer-generated content from the best influencer management agency!",
       features: [
-        "Creator matching & vetting",
-        "Campaign strategy development",
-        "Contract negotiation & management",
-        "Performance tracking & optimization"
+        "Strategic Storytelling",
+        "Impactful Engagement",
+        "Authentic Product Integration",
+        "Enhanced Social Media Reach"
       ],
-      targetAudience: "E-commerce brands, SaaS companies, lifestyle products",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop"
+      targetAudience: "Fashion, Beauty, Food, Fitness — all lifestyle-driven brands thrive with Influencer Generated Content.",
+      image: "https://images.pexels.com/photos/6347558/pexels-photo-6347558.jpeg?_gl=1*1o14338*_ga*MTI3MDcyNjM0My4xNzUxODgzNDE4*_ga_8JE65Q40S6*czE3NTE4ODM0MTgkbzEkZzEkdDE3NTE4ODU4MzkkajU4JGwwJGgw"
     },
     {
       icon: Zap,
-      title: "UGC Content Production",
-      description: "Authentic user-generated content that builds trust and drives conversions for your brand.",
+      title: "User Generated Content Production",
+      description: "Build trust with authentic user-generated content (UGC) from the best user-generated content platform. Boost your brand with real-world videos!",
       features: [
-        "Content brief development",
-        "Creator recruitment & onboarding",
-        "Quality assurance & editing",
+        "Community-driven storytelling",
+        "Real Stories, Real Impact",
+        "Increased Social Media Engagement",
         "Multi-format content delivery"
       ],
-      targetAudience: "Direct-to-consumer brands, mobile apps, subscription services",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop"
+      targetAudience: "UGC is powerful for travel, home decor, consumer tech, and pet care brands—where real customer moments spark trust and sales.",
+      image: "https://images.pexels.com/photos/17713779/pexels-photo-17713779.jpeg?_gl=1*1omni03*_ga*MTI3MDcyNjM0My4xNzUxODgzNDE4*_ga_8JE65Q40S6*czE3NTE4ODM0MTgkbzEkZzEkdDE3NTE4ODY4MzAkajYwJGwwJGgw"
     },
     {
       icon: BarChart3,
