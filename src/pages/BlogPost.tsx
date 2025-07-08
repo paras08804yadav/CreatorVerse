@@ -20,7 +20,7 @@ const BlogPost = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black/95 pt-20">
+    <div className="min-h-screen bg-gradient-to-br from-[#0a0a0a] to-[#111111]  pt-20">
       <Navigation />
       <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}

@@ -1,6 +1,8 @@
 
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Twitter, Mail, Crown, Phone, MapPin } from "lucide-react";
+import logo from "@/assets/logo.png";
+
 
 const Footer = () => {
   return (
@@ -9,14 +11,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
+              <img src={logo} alt="Logo" className="h-25 w-20 object-contain" />
               <div className="flex flex-col">
                 <span className="text-2xl font-bold text-white tracking-tight">CreatorVerse</span>
               </div>
             </div>
             
             <p className="text-gray-300 mb-8 max-w-md leading-relaxed">
-              The world's most exclusive creator marketing agency. We connect premium brands 
-              with elite creators to produce campaigns that redefine industry standards and 
+              The Kanpur world's most exclusive creator marketing agency. We connect brands 
+              with creators to produce campaigns that redefine industry standards and 
               deliver unprecedented ROI.
             </p>
             
@@ -85,7 +88,7 @@ const Footer = () => {
                   to="/portfolio" 
                   className="text-gray-300 hover:text-amber-400 transition-colors duration-300 flex items-center group"
                 >
-                  Case Study
+                  Blog
                   <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                 </Link>
               </li>
@@ -107,11 +110,11 @@ const Footer = () => {
             </h3>
             <ul className="space-y-4">
               <li className="text-gray-300">Influencer Generated Content</li>
-              <li className="text-gray-300">User Generated Content Production</li>
+              <li className="text-gray-300">UGC Production</li>
               <li className="text-gray-300">Viral Content Production</li>
               <li className="text-gray-300">Content Strategy</li>
               <li className="text-gray-300">Reel Script Writing </li>
-              <li className="text-gray-300">Product Shootc</li>
+              <li className="text-gray-300">Product Shoot</li>
             </ul>
           </div>
         </div>

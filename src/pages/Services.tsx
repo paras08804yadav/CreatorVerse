@@ -23,7 +23,7 @@ const Services = () => {
     },
     {
       icon: Zap,
-      title: "User Generated Content Production",
+      title: "UGC Production",
       description: "Build trust with authentic user-generated content (UGC) from the best user-generated content platform. Boost your brand with real-world videos!",
       features: [
         "Community-driven storytelling",
@@ -32,7 +32,7 @@ const Services = () => {
         "Multi-format content delivery"
       ],
       targetAudience: "UGC is powerful for travel, home decor, consumer tech, and pet care brands—where real customer moments spark trust and sales.",
-      image: "https://images.pexels.com/photos/17713779/pexels-photo-17713779.jpeg?_gl=1*1omni03*_ga*MTI3MDcyNjM0My4xNzUxODgzNDE4*_ga_8JE65Q40S6*czE3NTE4ODM0MTgkbzEkZzEkdDE3NTE4ODY4MzAkajYwJGwwJGgw"
+      image: "https://cdn.taggbox.com/v7/ugc101.com/wp-content/uploads/2024/10/63fe447f5cf873cbe1373fc1_UGC-pos.jpg"
     },
     {
       icon: BarChart3,
@@ -45,7 +45,7 @@ const Services = () => {
         "Competitive analysis & benchmarking"
       ],
       targetAudience: "Growth-focused businesses, marketing teams, agencies",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop"
+      image: "https://static.vecteezy.com/system/resources/previews/002/945/116/non_2x/viral-content-word-concepts-banner-vector.jpg"
     },
     {
       icon: Target,
@@ -58,7 +58,7 @@ const Services = () => {
         "Trend analysis & forecasting"
       ],
       targetAudience: "Established brands, startups, marketing departments",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+      image: "https://img.freepik.com/free-vector/happy-seo-planning-campaign-social-media-isolated-flat-illustration_74855-10793.jpg"
     },
       {
       icon: Target,
@@ -71,7 +71,7 @@ const Services = () => {
         "Trend analysis & forecasting"
       ],
       targetAudience: "Established brands, startups, marketing departments",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS71Gtw1SPCtYJMbp7aBZLXvRaOWYUDKYNN2w&s"
     },
         {
       icon: Target,
@@ -84,7 +84,7 @@ const Services = () => {
         "Trend analysis & forecasting"
       ],
       targetAudience: "Established brands, startups, marketing departments",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+      image: "https://cdn.pixabay.com/photo/2021/07/14/17/23/photography-6466671_640.jpg"
     }
   ];
 
@@ -155,11 +155,6 @@ const Services = () => {
                       Get Started
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
-                    <Link to="/portfolio">
-                      <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white hover:text-black">
-                        View Case Studies
-                      </Button>
-                    </Link>
                   </div>
                 </div>
                 
@@ -214,29 +209,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-amber-400 to-yellow-500">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-            Ready to Amplify Your Brand?
-          </h2>
-          <p className="text-xl text-black/80 mb-8">
-            Let's discuss how our services can drive real results for your business.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact">
-              <Button size="lg" className="bg-black text-white hover:bg-gray-800">
-                Schedule Consultation
-              </Button>
-            </Link>
-            <Link to="/portfolio">
-              <Button size="lg" variant="outline" className="border-black text-black hover:bg-black hover:text-white">
-                View Our Work
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </div>

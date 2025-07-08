@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
+
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,9 +25,14 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center space-x-3">
+          <img src={logo} alt="Logo" className="h-20 w-14 object-contain py-0 my-0" />
+
             <div className="flex flex-col">
               <span className="text-2xl font-bold text-white tracking-tight">
-                CreatorVerse
+                Creator
+                <span className="text-2xl font-bold text-amber-400 tracking-tight">
+                Verse
+              </span>
               </span>
             </div>
           </Link>

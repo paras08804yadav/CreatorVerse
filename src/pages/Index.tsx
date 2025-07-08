@@ -5,7 +5,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
-
+import reel1 from "@/assets/reel1.mp4";
+import reel2 from "@/assets/reel2.mp4";
 
 const VideoDemo = ({ src, title, coverImage }: { src: string, title: string, coverImage: string }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -35,7 +36,6 @@ const VideoDemo = ({ src, title, coverImage }: { src: string, title: string, cov
       <video
         ref={videoRef}
         className="w-full h-full object-cover"
-        poster={coverImage}
         muted={isMuted}
         onEnded={() => setIsPlaying(false)}
       >
@@ -68,22 +68,23 @@ const VideoDemo = ({ src, title, coverImage }: { src: string, title: string, cov
 const Index = () => {
   const demoVideos = [
     {
-      src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      src: reel2,
       title: "Luxury Brand Campaign",
-      coverImage: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=600&fit=crop"
+      coverImage: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=400&h=600&fit=crop"
+
     },
     {
-      src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      src: reel1,
       title: "Premium UGC Content", 
       coverImage: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=400&h=600&fit=crop"
     },
     {
-      src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+      src: reel2,
       title: "Viral Social Campaign",
       coverImage: "https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=400&h=600&fit=crop"
     },
     {
-      src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+      src: reel1,
       title: "Celebrity Collaboration",
       coverImage: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400&h=600&fit=crop"
     }
@@ -294,9 +295,15 @@ const Index = () => {
           </ul>
           <p className="text-xs text-gray-400 mb-4">Perfect for: Fashion, Beauty, Food, Fitness</p>
           <div className="flex flex-wrap gap-4">
-            <Link to="/get-started" className="text-amber-400 font-semibold hover:text-yellow-400">Get Started</Link>
-            <Link to="/case-studies" className="text-gray-400 hover:text-white">View Case Studies</Link>
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/20"
+            >
+              Get Started
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </div>
+
         </CardContent>
       </Card>
 
@@ -315,9 +322,15 @@ const Index = () => {
           </ul>
           <p className="text-xs text-gray-400 mb-4">Perfect for: Travel, Decor, Tech, Pets</p>
           <div className="flex flex-wrap gap-4">
-            <Link to="/get-started" className="text-amber-400 font-semibold hover:text-yellow-400">Get Started</Link>
-            <Link to="/case-studies" className="text-gray-400 hover:text-white">View Case Studies</Link>
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/20"
+            >
+              Get Started
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </div>
+
         </CardContent>
       </Card>
 
@@ -335,10 +348,12 @@ const Index = () => {
             <li>• Competitive Analysis</li>
           </ul>
           <p className="text-xs text-gray-400 mb-4">Perfect for: Growth Teams, Agencies</p>
-          <div className="flex flex-wrap gap-4">
-            <Link to="/get-started" className="text-amber-400 font-semibold hover:text-yellow-400">Get Started</Link>
-            <Link to="/case-studies" className="text-gray-400 hover:text-white">View Case Studies</Link>
-          </div>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button size="lg" className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/20">
+                      Get Started
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </div>
         </CardContent>
       </Card>
 
@@ -356,10 +371,12 @@ const Index = () => {
             <li>• Trend Forecasting</li>
           </ul>
           <p className="text-xs text-gray-400 mb-4">Perfect for: Startups, D2C, Corporates</p>
-          <div className="flex flex-wrap gap-4">
-            <Link to="/get-started" className="text-amber-400 font-semibold hover:text-yellow-400">Get Started</Link>
-            <Link to="/case-studies" className="text-gray-400 hover:text-white">View Case Studies</Link>
-          </div>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button size="lg" className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/20">
+                      Get Started
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </div>
         </CardContent>
       </Card>
 
@@ -377,10 +394,12 @@ const Index = () => {
             <li>• Niche Personalization</li>
           </ul>
           <p className="text-xs text-gray-400 mb-4">Perfect for: Creators, D2C Brands, Agencies</p>
-          <div className="flex flex-wrap gap-4">
-            <Link to="/get-started" className="text-amber-400 font-semibold hover:text-yellow-400">Get Started</Link>
-            <Link to="/case-studies" className="text-gray-400 hover:text-white">View Case Studies</Link>
-          </div>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button size="lg" className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/20">
+                      Get Started
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </div>
         </CardContent>
       </Card>
 
@@ -399,9 +418,15 @@ const Index = () => {
           </ul>
           <p className="text-xs text-gray-400 mb-4">Perfect for: Product Brands, Instagram Shops</p>
           <div className="flex flex-wrap gap-4">
-            <Link to="/get-started" className="text-amber-400 font-semibold hover:text-yellow-400">Get Started</Link>
-            <Link to="/case-studies" className="text-gray-400 hover:text-white">View Case Studies</Link>
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/20"
+            >
+              Get Started
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </div>
+
         </CardContent>
       </Card>
     </div>
@@ -438,11 +463,11 @@ const Index = () => {
             ))}
           </div>
           <p className="text-gray-300 mb-6 italic leading-relaxed">
-            "Our brand visibility skyrocketed with CreatorVerse. Their creator collaborations were not only beautifully executed but deeply aligned with our audience."
+            "CreatorVerse played a huge role in our pre-launch success. Their content helped us reach over 2 million people organically and generated more than 25,000 app registrations. The videos were not just creative — they were truly magical and viral."
           </p>
           <div className="flex items-center">
             <img 
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" 
+              src="https://media.licdn.com/dms/image/v2/D5603AQEi1GMEv5YKYw/profile-displayphoto-shrink_800_800/B56ZRrEjltHsAg-/0/1736963145520?e=1757548800&v=beta&t=vzi9Y-5XgTQ-EQ8SE421z80wRtGRvXG8YU3WvurpH5I" 
               alt="Client 1" 
               className="w-12 h-12 rounded-full mr-4"
             />
@@ -463,11 +488,11 @@ const Index = () => {
             ))}
           </div>
           <p className="text-gray-300 mb-6 italic leading-relaxed">
-            "CreatorVerse became more than a vendor—they’re a strategic ally. They get creators, they get data, and they understand what performance really means."
+            "CreatorVerse didn’t just deliver content — they helped us generate high-quality leads through impactful UGC. The team is incredibly polite, professional, and easy to work with."
           </p>
           <div className="flex items-center">
             <img 
-              src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=60&h=60&fit=crop&crop=face" 
+              src="https://media.licdn.com/dms/image/v2/D5635AQHIwf-mcuOSsA/profile-framedphoto-shrink_400_400/B56ZfbalyBGQAg-/0/1751732870629?e=1752616800&v=beta&t=fosOOn62A_KavfkIqCaloOT6nsJDEwR05HCv7jr8Yig" 
               alt="Client 2" 
               className="w-12 h-12 rounded-full mr-4"
             />
@@ -488,11 +513,11 @@ const Index = () => {
             ))}
           </div>
           <p className="text-gray-300 mb-6 italic leading-relaxed">
-            "We've run over 20 campaigns together and CreatorVerse continues to outperform traditional agencies. Their UGC workflows are a game changer."
+            "I truly appreciate the work I’ve done with CreatorVerse. They’re not only excellent at what they do, but also far more affordable than other agencies."
           </p>
           <div className="flex items-center">
             <img 
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face" 
+              src="https://media.licdn.com/dms/image/v2/D4D03AQHwG5CqhbPeeQ/profile-displayphoto-shrink_400_400/B4DZYp5iiUGkAg-/0/1744459674049?e=1757548800&v=beta&t=fqmKDyIw4MbMZbTeb1UlEs2ddqhmD9fWz2f7DtOscAw" 
               alt="Client 3" 
               className="w-12 h-12 rounded-full mr-4"
             />
