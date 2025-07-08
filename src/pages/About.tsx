@@ -49,9 +49,14 @@ const About = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-black via-gray-900 to-black">
+      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-amber-400 opacity-10 rounded-full blur-[120px] animate-float"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-yellow-500 opacity-5 rounded-full blur-[140px] animate-float-delayed"></div>
+        </div>
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 relative z-10 animate-fade-in-up">
             We're Redefining
             <span className="gold-gradient block mt-2">
               Creator Marketing
@@ -114,9 +119,9 @@ const About = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             {values.map((value, index) => (
-              <Card key={index} className="bg-gradient-to-br from-gray-900 to-black border-white/10 hover:border-amber-400/30 transition-all duration-300">
+              <Card key={index} className="bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10 hover:border-amber-400/30 transition-all duration-500 backdrop-blur-sm hover:scale-[1.02] hover:shadow-2xl hover:shadow-amber-400/20 group">
                 <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 group-hover:bg-pos-100 rounded-full flex items-center justify-center mx-auto mb-6 transform transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-amber-400/20">
                     <value.icon className="h-8 w-8 text-black" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-4">{value.title}</h3>
@@ -140,13 +145,13 @@ const About = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
-              <Card key={index} className="bg-gradient-to-br from-gray-900 to-black border-white/10 hover:border-amber-400/30 transition-all duration-300 group">
+              <Card key={index} className="bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10 hover:border-amber-400/30 transition-all duration-500 backdrop-blur-sm hover:scale-[1.02] hover:shadow-2xl hover:shadow-amber-400/20 group">
                 <CardContent className="p-8 text-center">
                   <div className="relative mb-6">
                     <img 
                       src={member.image}
                       alt={member.name}
-                      className="w-24 h-24 rounded-full mx-auto object-cover group-hover:scale-105 transition-transform border-2 border-amber-400/20"
+                      className="w-24 h-24 rounded-full mx-auto object-cover group-hover:scale-110 transition-all duration-500 border-2 border-amber-400/20 group-hover:border-amber-400/50 shadow-lg group-hover:shadow-xl group-hover:shadow-amber-400/20"
                     />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>

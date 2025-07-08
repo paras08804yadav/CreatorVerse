@@ -67,7 +67,12 @@ const Portfolio = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-black via-gray-900 to-black">
+      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-amber-400 opacity-10 rounded-full blur-[120px] animate-float"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-yellow-500 opacity-5 rounded-full blur-[140px] animate-float-delayed"></div>
+        </div>
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Success Stories That
@@ -83,7 +88,8 @@ const Portfolio = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] opacity-0"></div>
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div>
@@ -118,13 +124,13 @@ const Portfolio = () => {
           
           <div className="space-y-20">
             {caseStudies.map((study, index) => (
-              <Card key={index} className="bg-gradient-to-br from-gray-900 to-black border-white/10 hover:border-amber-400/30 transition-all duration-300 overflow-hidden">
+              <Card key={index} className="bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10 hover:border-amber-400/30 transition-all duration-500 backdrop-blur-sm hover:scale-[1.02] hover:shadow-2xl hover:shadow-amber-400/20 group overflow-hidden">
                 <div className="grid lg:grid-cols-2">
                   <div className="relative">
                     <img 
                       src={study.image}
                       alt={study.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-4 left-4">
                       <Badge className="bg-amber-400 text-black">{study.category}</Badge>
@@ -180,9 +186,9 @@ const Portfolio = () => {
             <p className="text-gray-300">Join the companies that have transformed their marketing with CreatorVerse</p>
           </div>
           
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center opacity-60">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center opacity-60 relative z-10">
             {clientLogos.map((logo, index) => (
-              <div key={index} className="h-12 bg-white/10 rounded flex items-center justify-center border border-white/10">
+              <div key={index} className="h-12 bg-white/10 rounded flex items-center justify-center border border-white/10 hover:border-amber-400/30 transition-all duration-300 hover:bg-white/20 group">
                 <span className="font-bold text-gray-300 text-sm">{logo}</span>
               </div>
             ))}
@@ -191,7 +197,7 @@ const Portfolio = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-amber-400 to-yellow-500">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 transition-all duration-1000 relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
             Ready to Write Your Success Story?
@@ -204,7 +210,7 @@ const Portfolio = () => {
               Start Your Campaign
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-black text-black hover:bg-black hover:text-white">
+            <Button size="lg" variant="outline" className="border-black text-white ">
               <ExternalLink className="mr-2 h-5 w-5" />
               Download Case Studies
             </Button>

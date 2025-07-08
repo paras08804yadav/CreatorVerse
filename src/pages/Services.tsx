@@ -89,11 +89,16 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-[#0a0a0a] text-white">
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-black via-gray-900 to-black">
+      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-amber-400 opacity-10 rounded-full blur-[120px] animate-float"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-yellow-500 opacity-5 rounded-full blur-[140px] animate-float-delayed"></div>
+        </div>
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Services That
@@ -111,12 +116,16 @@ const Services = () => {
       {/* Services Grid */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="space-y-20">
+          <div className="space-y-20 relative z-10">
+            <div className="absolute inset-0 z-0">
+              <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-400 opacity-5 rounded-full blur-[140px] animate-float"></div>
+              <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500 opacity-5 rounded-full blur-[140px] animate-float-delayed"></div>
+            </div>
             {services.map((service, index) => (
-              <div key={index} className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
+              <div key={index} className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''} group animate-fade-in-up`}>
                 <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-lg flex items-center justify-center mr-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 group-hover:bg-pos-100 rounded-lg flex items-center justify-center mr-4 transform transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-amber-400/20">
                       <service.icon className="h-6 w-6 text-black" />
                     </div>
                     <h2 className="text-3xl font-bold text-white">{service.title}</h2>
@@ -142,7 +151,7 @@ const Services = () => {
                   </div>
                   
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button size="lg" className="bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-yellow-500 hover:to-amber-400 text-black font-bold">
+                    <Button size="lg" className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/20">
                       Get Started
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
@@ -159,7 +168,7 @@ const Services = () => {
                     <img 
                       src={service.image}
                       alt={service.title}
-                      className="rounded-2xl shadow-xl w-full border border-white/10"
+                      className="rounded-2xl shadow-xl w-full border border-white/10 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-amber-400/20 backdrop-blur-sm"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
                   </div>
@@ -171,7 +180,7 @@ const Services = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-black">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Process</h2>
@@ -180,14 +189,17 @@ const Services = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-4 gap-8 relative z-10">
+            <div className="absolute inset-0 z-0">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-400 opacity-5 rounded-full blur-[180px] animate-float-slow"></div>
+            </div>
             {[
               { step: "01", title: "Discovery", description: "We dive deep into your brand, goals, and target audience" },
               { step: "02", title: "Strategy", description: "Develop a comprehensive campaign strategy and creator matching" },
               { step: "03", title: "Execution", description: "Launch campaigns with our vetted creators and manage every detail" },
               { step: "04", title: "Optimization", description: "Monitor performance and optimize for maximum ROI and engagement" }
             ].map((phase, index) => (
-              <Card key={index} className="bg-gradient-to-br from-gray-900 to-black border-white/10 hover:border-amber-400/30 transition-all duration-300 relative">
+              <Card key={index} className="bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10 hover:border-amber-400/30 transition-all duration-500 backdrop-blur-sm hover:scale-[1.02] hover:shadow-2xl hover:shadow-amber-400/20 group relative">
                 <CardContent className="p-8">
                   <div className="text-3xl font-bold text-amber-400 mb-4">{phase.step}</div>
                   <h3 className="text-xl font-bold text-white mb-3">{phase.title}</h3>
@@ -218,7 +230,7 @@ const Services = () => {
               </Button>
             </Link>
             <Link to="/portfolio">
-              <Button size="lg" variant="outline" className="border-black text-black hover:bg-black hover:text-white">
+              <Button size="lg" variant="outline" className="border-black text-white">
                 View Our Work
               </Button>
             </Link>

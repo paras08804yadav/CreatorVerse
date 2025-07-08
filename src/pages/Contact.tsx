@@ -32,25 +32,25 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "hello@creatorverse.com",
+      details: "support@creatorverse.com",
       subtitle: "We'll respond within 4 hours"
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: "+1 (555) 123-4567",
+      details: "+91 9219135156",
       subtitle: "Mon-Fri, 9AM-6PM PST"
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      details: "San Francisco, CA",
+      details: "Swaroup Nagar, Kanpur Nagar, Uttar Pradesh",
       subtitle: "Schedule an in-person meeting"
     },
     {
       icon: Clock,
       title: "Response Time",
-      details: "< 24 hours",
+      details: "less than 24 hours",
       subtitle: "Average first response time"
     }
   ];
@@ -64,13 +64,18 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-[#0a0a0a] text-white">
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-black via-gray-900 to-black">
+      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-amber-400 opacity-10 rounded-full blur-[120px] animate-float"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-yellow-500 opacity-5 rounded-full blur-[140px] animate-float-delayed"></div>
+        </div>
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 relative z-10 animate-fade-in-up">
             Let's Create Something
             <span className="gold-gradient block mt-2">
               Amazing Together
@@ -84,9 +89,10 @@ const Contact = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] opacity-50"></div>
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-16 relative z-10">
             {/* Contact Form */}
             <div>
               <h2 className="text-3xl font-bold text-white mb-6">Get Started Today</h2>
@@ -105,7 +111,7 @@ const Contact = () => {
                       onChange={(e) => handleInputChange("name", e.target.value)}
                       placeholder="Your name"
                       required
-                      className="w-full bg-gray-900 border-white/20 text-white placeholder-gray-400"
+                      className="w-full bg-gray-900/50 border-white/20 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300 focus:border-amber-400/50 focus:ring-amber-400/50 hover:border-amber-400/30"
                     />
                   </div>
                   <div>
@@ -118,7 +124,7 @@ const Contact = () => {
                       onChange={(e) => handleInputChange("email", e.target.value)}
                       placeholder="your@email.com"
                       required
-                      className="w-full bg-gray-900 border-white/20 text-white placeholder-gray-400"
+                      className="w-full bg-gray-900/50 border-white/20 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300 focus:border-amber-400/50 focus:ring-amber-400/50 hover:border-amber-400/30"
                     />
                   </div>
                 </div>
@@ -131,7 +137,7 @@ const Contact = () => {
                     value={formData.company}
                     onChange={(e) => handleInputChange("company", e.target.value)}
                     placeholder="Your company"
-                    className="w-full bg-gray-900 border-white/20 text-white placeholder-gray-400"
+                    className="w-full bg-gray-900/50 border-white/20 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300 focus:border-amber-400/50 focus:ring-amber-400/50 hover:border-amber-400/30"
                   />
                 </div>
                 
@@ -140,15 +146,15 @@ const Contact = () => {
                     Budget Range
                   </label>
                   <Select value={formData.budget} onValueChange={(value) => handleInputChange("budget", value)}>
-                    <SelectTrigger className="w-full bg-gray-900 border-white/20 text-white">
+                    <SelectTrigger className="w-full bg-gray-900/50 border-white/20 text-white hover:border-amber-400/30 transition-all duration-300">
                       <SelectValue placeholder="Select your budget range" />
                     </SelectTrigger>
-                    <SelectContent className="bg-gray-900 border-white/20">
-                      <SelectItem value="under-10k">Under $10,000</SelectItem>
-                      <SelectItem value="10k-25k">$10,000 - $25,000</SelectItem>
-                      <SelectItem value="25k-50k">$25,000 - $50,000</SelectItem>
-                      <SelectItem value="50k-100k">$50,000 - $100,000</SelectItem>
-                      <SelectItem value="over-100k">Over $100,000</SelectItem>
+                    <SelectContent className="bg-gray-900/90 border-white/20">
+                      <SelectItem value="under-10k">Under 10,000</SelectItem>
+                      <SelectItem value="10k-25k">10,000 - 25,000</SelectItem>
+                      <SelectItem value="25k-50k">25,000 - 50,000</SelectItem>
+                      <SelectItem value="50k-100k">50,000 - 100,000</SelectItem>
+                      <SelectItem value="over-100k">Over 100,000</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -163,14 +169,14 @@ const Contact = () => {
                     placeholder="Describe your goals, target audience, and what you're looking to achieve..."
                     rows={5}
                     required
-                    className="w-full bg-gray-900 border-white/20 text-white placeholder-gray-400"
+                    className="w-full bg-gray-900/50 border-white/20 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300 focus:border-amber-400/50 focus:ring-amber-400/50 hover:border-amber-400/30 min-h-[120px] resize-y"
                   />
                 </div>
                 
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="w-full bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-yellow-500 hover:to-amber-400 text-black font-bold"
+                  className="w-full bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold transition-all duration-500 transform hover:scale-[1.02] hover:shadow-lg hover:shadow-amber-400/20"
                 >
                   Send Message
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -179,16 +185,17 @@ const Contact = () => {
             </div>
             
             {/* Contact Info & Benefits */}
-            <div className="space-y-8">
+            <div className="space-y-8 lg:mt-0 mt-8">
               {/* Contact Information */}
               <div>
-                <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
+                <h3 className="text-2xl font-bold text-white mb-6 backdrop-blur-sm">Get in Touch</h3>
                 <div className="grid gap-4">
                   {contactInfo.map((info, index) => (
-                    <Card key={index} className="bg-gradient-to-br from-gray-900 to-black border-white/10 hover:border-amber-400/30 transition-colors">
-                      <CardContent className="p-4">
+                    <Card key={index} className="bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10 hover:border-amber-400/30 transition-all duration-500 backdrop-blur-sm hover:scale-[1.02] hover:shadow-2xl hover:shadow-amber-400/20 group">
+                      <CardContent className="p-6">
+                        <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
                         <div className="flex items-start space-x-4">
-                          <div className="w-10 h-10 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <div className="w-10 h-10 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110">
                             <info.icon className="h-5 w-5 text-black" />
                           </div>
                           <div>
@@ -204,10 +211,11 @@ const Contact = () => {
               </div>
               
               {/* What You Get */}
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-6">What You Get</h3>
-                <Card className="bg-gradient-to-br from-amber-400/10 to-yellow-500/10 border-amber-400/20">
-                  <CardContent className="p-6">
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-white mb-6 backdrop-blur-sm relative z-10 animate-fade-in-up">What You Get</h3>
+                <Card className="bg-gradient-to-br from-amber-400/10 to-yellow-500/10 border-amber-400/20 backdrop-blur-sm hover:scale-[1.02] transition-all duration-500 hover:shadow-2xl hover:shadow-amber-400/20 group">
+                  <CardContent className="p-6 relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
                     <ul className="space-y-4">
                       {benefits.map((benefit, index) => (
                         <li key={index} className="flex items-start space-x-3">
@@ -221,19 +229,19 @@ const Contact = () => {
               </div>
               
               {/* Quick Stats */}
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-6">Why Choose Us</h3>
-                <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-white mb-6 backdrop-blur-sm relative z-10 animate-fade-in-up">Why Choose Us</h3>
+                <div className="grid grid-cols-2 gap-6 backdrop-blur-sm relative z-10">
                   {[
                     { number: "24hr", label: "Response Time" },
                     { number: "95%", label: "Client Retention" },
                     { number: "22K+", label: "Active Creators" },
                     { number: "320%", label: "Average ROI" }
                   ].map((stat, index) => (
-                    <Card key={index} className="bg-gradient-to-br from-gray-900 to-black border-white/10 text-center">
+                    <Card key={index} className="bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10 hover:border-amber-400/30 transition-all duration-500 backdrop-blur-sm hover:scale-[1.02] hover:shadow-2xl hover:shadow-amber-400/20 group text-center" style={{ animationDelay: `${index * 150}ms` }}>
                       <CardContent className="p-4">
-                        <div className="text-2xl font-bold text-amber-400 mb-1">{stat.number}</div>
-                        <div className="text-sm text-gray-300">{stat.label}</div>
+                        <div className="text-3xl font-bold text-amber-400 mb-2 group-hover:scale-110 transition-transform duration-500">{stat.number}</div>
+                        <div className="text-sm text-gray-300 group-hover:text-white transition-colors duration-300">{stat.label}</div>
                       </CardContent>
                     </Card>
                   ))}
@@ -245,14 +253,19 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-black">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-400 opacity-5 rounded-full blur-[140px] animate-float"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500 opacity-5 rounded-full blur-[140px] animate-float-delayed"></div>
+        </div>
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 relative z-10 animate-fade-in-up">
             <h2 className="text-3xl font-bold text-white mb-4">Frequently Asked Questions</h2>
             <p className="text-gray-300">Quick answers to common questions about working with CreatorVerse</p>
           </div>
           
-          <div className="space-y-6">
+          <div className="space-y-6 relative z-10">
             {[
               {
                 question: "How quickly can we start a campaign?",
@@ -271,9 +284,9 @@ const Contact = () => {
                 answer: "Strategy development, creator sourcing and vetting, campaign management, content approval, and detailed reporting are all included."
               }
             ].map((faq, index) => (
-              <Card key={index} className="bg-gradient-to-br from-gray-900 to-black border-white/10">
+              <Card key={index} className="bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10 hover:border-amber-400/30 transition-all duration-500 backdrop-blur-sm hover:scale-[1.02] hover:shadow-2xl hover:shadow-amber-400/20 group animate-fade-in-up" style={{ animationDelay: `${index * 150}ms` }}>
                 <CardContent className="p-6">
-                  <h3 className="font-semibold text-white mb-3">{faq.question}</h3>
+                  <h3 className="font-semibold text-white mb-3 group-hover:text-amber-400 transition-colors duration-300 relative">{faq.question}</h3>
                   <p className="text-gray-300">{faq.answer}</p>
                 </CardContent>
               </Card>
