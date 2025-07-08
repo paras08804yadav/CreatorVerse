@@ -230,7 +230,7 @@ const Services = () => {
               </Button>
             </Link>
             <Link to="/portfolio">
-              <Button size="lg" variant="outline" className="border-black text-white">
+              <Button size="lg" variant="outline" className="border-black text-black hover:bg-black hover:text-white">
                 View Our Work
               </Button>
             </Link>

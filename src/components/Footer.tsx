@@ -9,9 +9,6 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-xl flex items-center justify-center shadow-lg">
-                <Crown className="h-7 w-7 text-black" />
-              </div>
               <div className="flex flex-col">
                 <span className="text-2xl font-bold text-white tracking-tight">CreatorVerse</span>
               </div>

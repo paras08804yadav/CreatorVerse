@@ -185,11 +185,11 @@ const Contact = () => {
             </div>
             
             {/* Contact Info & Benefits */}
-            <div className="space-y-8 lg:mt-0 mt-8">
+            <div className="space-y-12 lg:mt-0 mt-8 lg:pl-8">
               {/* Contact Information */}
               <div>
-                <h3 className="text-2xl font-bold text-white mb-6 backdrop-blur-sm">Get in Touch</h3>
-                <div className="grid gap-4">
+                <h3 className="text-2xl font-bold text-white mb-8 backdrop-blur-sm">Get in Touch</h3>
+                <div className="grid gap-6">
                   {contactInfo.map((info, index) => (
                     <Card key={index} className="bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10 hover:border-amber-400/30 transition-all duration-500 backdrop-blur-sm hover:scale-[1.02] hover:shadow-2xl hover:shadow-amber-400/20 group">
                       <CardContent className="p-6">
@@ -211,9 +211,9 @@ const Contact = () => {
               </div>
               
               {/* What You Get */}
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-white mb-6 backdrop-blur-sm relative z-10 animate-fade-in-up">What You Get</h3>
-                <Card className="bg-gradient-to-br from-amber-400/10 to-yellow-500/10 border-amber-400/20 backdrop-blur-sm hover:scale-[1.02] transition-all duration-500 hover:shadow-2xl hover:shadow-amber-400/20 group">
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold text-white mb-8 backdrop-blur-sm relative z-10 animate-fade-in-up">What You Get</h3>
+                <Card className="bg-gradient-to-br from-amber-400/10 to-yellow-500/10 border-amber-400/20 backdrop-blur-sm hover:scale-[1.02] transition-all duration-500 hover:shadow-2xl hover:shadow-amber-400/20 group p-2">
                   <CardContent className="p-6 relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
                     <ul className="space-y-4">
@@ -229,9 +229,9 @@ const Contact = () => {
               </div>
               
               {/* Quick Stats */}
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-white mb-6 backdrop-blur-sm relative z-10 animate-fade-in-up">Why Choose Us</h3>
-                <div className="grid grid-cols-2 gap-6 backdrop-blur-sm relative z-10">
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold text-white mb-8 backdrop-blur-sm relative z-10 animate-fade-in-up">Why Choose Us</h3>
+                <div className="grid grid-cols-2 gap-8 backdrop-blur-sm relative z-10">
                   {[
                     { number: "24hr", label: "Response Time" },
                     { number: "95%", label: "Client Retention" },
