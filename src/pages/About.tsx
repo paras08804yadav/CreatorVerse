@@ -7,22 +7,22 @@ import Footer from "@/components/Footer";
 const About = () => {
   const teamMembers = [
     {
-      name: "Sarah Chen",
-      role: "CEO & Founder",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=300&h=300&fit=crop&crop=face",
-      bio: "Former VP of Marketing at a leading social platform. 8+ years building creator communities.",
+      name: "Punnet Singh Chauhan",
+      role: "Founder",
+      image: "https://media.licdn.com/dms/image/v2/D4D03AQG7pQy0llD8sQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1718287821597?e=1757548800&v=beta&t=xuc3OdpAVMMnPh-IFFV0EAQd2THSnz6CgRnQKef8eU8",
+      bio: "6+ years experience in content creation.",
     },
     {
-      name: "Marcus Rodriguez",
-      role: "Head of Creator Relations",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
-      bio: "Ex-influencer manager with deep connections across all major platforms and niches.",
+      name: "Tanisha Bhati",
+      role: "Content Writer",
+      image: "https://media.licdn.com/dms/image/v2/D4D03AQHCYjQjctgbpw/profile-displayphoto-crop_800_800/B4DZd9q8L4HAAU-/0/1750160098829?e=1757548800&v=beta&t=5oseMxrtc3AFT_EY6bzNCsl062EUk33Lgr4mWoN6v_Q",
+      bio: "3+ years experiemce in content writing.",
     },
     {
-      name: "Emma Thompson",
-      role: "Creative Director",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
-      bio: "Award-winning content strategist who's created viral campaigns for Fortune 500 brands.",
+      name: "Naman Soni",
+      role: "Head of creator partnerships",
+      image: "https://ig.socialapi-v2.workers.dev/?q=Zk3YpkB9murhltrR5XJR5do-p0TomGSRlt3RZyKh5Xgep0gMm0i-zjrtmEToBjfuOQ6omG8KmhcHOQ6HBh6EBonLOQatBQ8tih6Kih8KBQ6uBgnoBG6uiCSuBQluBQ6tBhTYiQvf4tfRZe2eWEiYpQovpETMZe2e4tcH4EBLiG2fBGcH4E3YiqDwz0iwZkTrpti-ze3xzeTMzE1vijYum0ivz0xRpE3VDE1VzjKCztY04tKC4tiV5QYLBQT04tKC4trCWJ8tloFucc6LcXnL50M_yQgxJobQ4ovoioThjebHmJiHcyLwjvoNDGxoit5CltbtDc3WlvLKit5eBG2DTxbXBypu5EcKOyrJ1xrRlor-ZXBrBtKqJJb-yGgNcEi3itMO5e5kOQ8EJQS04tKC4t5bDQoJDy3oBxJjyQD-OcKADvM2jJThBoJ310JvzGo2Gh3AJGxgTvg2Tc80ltiqWGpMijDbDorClyiFDJrAD4vr3YikioJfi0MAc0xgzYi_Tcg8jx2Ezt3WygrfjX1t3yK2ccgdmyiClCpMijD-ZQYHBgr2DxTMiy5qGC6tzESoito9DxgRzo534h3wGY5ZGGV4pvxEOgi05gpt4oFHix3E10rxWGlfihBfThaL1xrRlorhZyTrBGlYlhgv",
+      bio: "4+ years experience in creator partnerships.",
     },
   ];
 
@@ -76,20 +76,18 @@ const About = () => {
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Our Story</h2>
               <div className="space-y-4 text-gray-300">
-                <p>
-                  Founded in 2022, CreatorVerse emerged from the recognition that the creator economy 
-                  was fragmented. Brands struggled to find the right creators, and creators couldn't 
-                  connect with brands that aligned with their values.
-                </p>
-                <p>
-                  Our founding team, with decades of combined experience in marketing and creator 
-                  management, set out to build the bridge between these two worlds. Today, we're 
-                  proud to facilitate thousands of successful partnerships.
-                </p>
-                <p>
-                  We've grown from a small team with big dreams to a thriving agency that's helped 
-                  over 500 brands amplify their message through authentic creator content.
-                </p>
+              <p>
+                At CreatorVerse, we’re driven by one clear vision — to make creator-brand collaborations effortless and impactful. 
+                In today’s fast-moving digital world, we noticed a gap: creators had the creativity, brands had the mission — but the connection was missing.
+              </p>
+              <p>
+                Our team brings deep experience from both marketing and creator ecosystems. We've worked behind the scenes of successful brand campaigns and know what it takes to deliver real engagement, not vanity metrics.
+              </p>
+              <p>
+                CreatorVerse isn't just a service — it's a partner for brands ready to grow through meaningful content. 
+                With every project, we aim to deliver more than results — we deliver relevance, creativity, and connection.
+              </p>
+
               </div>
             </div>
             <div className="relative">
@@ -98,10 +96,6 @@ const About = () => {
                 alt="Team collaboration"
                 className="rounded-2xl shadow-xl border border-white/10"
               />
-              <div className="absolute -bottom-6 -right-6 bg-black/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/10">
-                <div className="text-2xl font-bold text-amber-400 mb-2">500+</div>
-                <div className="text-sm text-gray-300">Brands Served</div>
-              </div>
             </div>
           </div>
         </div>
