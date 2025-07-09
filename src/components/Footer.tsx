@@ -147,15 +147,17 @@ const Footer = () => {
         <div className="border-t border-white/10 mt-16 pt-12 flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0">
           <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8">
             <div className="flex space-x-6">
-              <a href="#" className="text-gray-400 hover:text-amber-400 text-sm transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-gray-400 hover:text-amber-400 text-sm transition-colors">
-                Terms of Service
-              </a>
-              <a href="#" className="text-gray-400 hover:text-amber-400 text-sm transition-colors">
-                Cookie Policy
-              </a>
+              <div className="flex flex-col space-y-2">
+                <Link to="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
+                <Link to="/terms-of-service" className="text-gray-400 hover:text-white transition-colors">
+                  Terms of Service
+                </Link>
+                <Link to="/cookie-policy" className="text-gray-400 hover:text-white transition-colors">
+                  Cookie Policy
+                </Link>
+              </div>
             </div>
           </div>
         </div>

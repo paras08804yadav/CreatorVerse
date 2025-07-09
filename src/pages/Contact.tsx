@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Mail, Phone, MapPin, Clock, ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,20 +9,93 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
+import SubmissionsHistory from '@/components/SubmissionsHistory';
+
+const FORM_DATA_KEY = 'creatorverse_contact_form';
+const SUBMISSIONS_KEY = 'creatorverse_submissions';
 
 const Contact = () => {
+  const [searchParams] = useSearchParams();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    userType: "",
     company: "",
     budget: "",
-    message: ""
+    message: "",
+    service: searchParams.get("service") || "",
+    socialPlatform: "",
+    socialUsername: "",
+    contactNumber: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Load saved form data on component mount
+  useEffect(() => {
+    const savedFormData = localStorage.getItem(FORM_DATA_KEY);
+    if (savedFormData) {
+      const parsedData = JSON.parse(savedFormData);
+      setFormData(prev => ({
+        ...prev,
+        ...parsedData,
+        service: searchParams.get("service") || parsedData.service
+      }));
+    }
+  }, []);
+
+  // Save form data as user types
+  useEffect(() => {
+    localStorage.setItem(FORM_DATA_KEY, JSON.stringify(formData));
+  }, [formData]);
+
+  const saveSubmission = (data: typeof formData) => {
+    try {
+      const submissions = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || '[]');
+      submissions.push({
+        ...data,
+        submittedAt: new Date().toISOString(),
+        status: 'pending'
+      });
+      localStorage.setItem(SUBMISSIONS_KEY, JSON.stringify(submissions));
+    } catch (error) {
+      console.error('Error saving submission:', error);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thank you! We'll get back to you within 24 hours.");
-    setFormData({ name: "", email: "", company: "", budget: "", message: "" });
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbx7yzRVsbC8ozfoRvotpNp9jF3KGcOzXtITshnhsMPtjvT4qcWlhOoYHicJd_4tUu1o/exec',{
+        method: 'POST',
+        body: JSON.stringify(formData),
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      
+      // Save submission to localStorage
+      saveSubmission(formData);
+
+      toast.success("Thank you! We'll get back to you within 24 hours.");
+      
+      // Clear form and localStorage
+      setFormData({
+        name: "",
+        email: "",
+        userType: "",
+        company: "",
+        budget: "",
+        message: "",
+        service: searchParams.get("service") || "",
+        socialPlatform: "",
+        socialUsername: "",
+        contactNumber: ""
+      });
+      localStorage.removeItem(FORM_DATA_KEY);
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.");
+      console.error('Error submitting form:', error);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -100,7 +174,7 @@ const Contact = () => {
                 Tell us about your project and we'll craft a custom strategy that delivers results.
               </p>
               
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6 mb-12">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-white mb-2">
@@ -128,45 +202,114 @@ const Contact = () => {
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-white mb-2">
-                    Company Name
+                    You are a *
                   </label>
-                  <Input
-                    value={formData.company}
-                    onChange={(e) => handleInputChange("company", e.target.value)}
-                    placeholder="Your company"
-                    className="w-full bg-gray-900/50 border-white/20 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300 focus:border-amber-400/50 focus:ring-amber-400/50 hover:border-amber-400/30"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-white mb-2">
-                    Budget Range
-                  </label>
-                  <Select value={formData.budget} onValueChange={(value) => handleInputChange("budget", value)}>
+                  <Select value={formData.userType} onValueChange={(value) => handleInputChange("userType", value)} required>
                     <SelectTrigger className="w-full bg-gray-900/50 border-white/20 text-white hover:border-amber-400/30 transition-all duration-300">
-                      <SelectValue placeholder="Select your budget range" />
+                      <SelectValue placeholder="Select your type" />
                     </SelectTrigger>
                     <SelectContent className="bg-gray-900/90 border-white/20">
-                      <SelectItem value="under-10k">Under 10,000</SelectItem>
-                      <SelectItem value="10k-25k">10,000 - 25,000</SelectItem>
-                      <SelectItem value="25k-50k">25,000 - 50,000</SelectItem>
-                      <SelectItem value="50k-100k">50,000 - 100,000</SelectItem>
-                      <SelectItem value="over-100k">Over 100,000</SelectItem>
+                      <SelectItem value="creator">Creator</SelectItem>
+                      <SelectItem value="organization">Organization</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
-                
+
+                {formData.userType === 'organization' && (
+                  <>
+                    <div>
+                      <label className="block text-sm font-medium text-white mb-2">
+                        Company Name *
+                      </label>
+                      <Input
+                        value={formData.company}
+                        onChange={(e) => handleInputChange("company", e.target.value)}
+                        placeholder="Your company"
+                        required
+                        className="w-full bg-gray-900/50 border-white/20 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300 focus:border-amber-400/50 focus:ring-amber-400/50 hover:border-amber-400/30"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-white mb-2">
+                        Interested Service *
+                      </label>
+                      <Select value={formData.service} onValueChange={(value) => handleInputChange("service", value)} required>
+                        <SelectTrigger className="w-full bg-gray-900/50 border-white/20 text-white hover:border-amber-400/30 transition-all duration-300">
+                          <SelectValue placeholder="Select service" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-gray-900/90 border-white/20">
+                          <SelectItem value="Influencer Generated Content">Influencer Generated Content</SelectItem>
+                          <SelectItem value="User Generated Content">User Generated Content</SelectItem>
+                          <SelectItem value="Viral Content Production">Viral Content Production</SelectItem>
+                          <SelectItem value="Content Strategy">Content Strategy</SelectItem>
+                          <SelectItem value="Reel Script Writing">Reel Script Writing</SelectItem>
+                          <SelectItem value="Product Shoot">Product Shoot</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </>
+                )}
+
+                {formData.userType === 'creator' && (
+                  <>
+                    <div>
+                      <label className="block text-sm font-medium text-white mb-2">
+                        Social Media Platform *
+                      </label>
+                      <Select value={formData.socialPlatform} onValueChange={(value) => handleInputChange("socialPlatform", value)} required>
+                        <SelectTrigger className="w-full bg-gray-900/50 border-white/20 text-white hover:border-amber-400/30 transition-all duration-300">
+                          <SelectValue placeholder="Select platform" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-gray-900/90 border-white/20">
+                          <SelectItem value="Instagram">Instagram</SelectItem>
+                          <SelectItem value="YouTube">YouTube</SelectItem>
+                          <SelectItem value="TikTok">TikTok</SelectItem>
+                          <SelectItem value="LinkedIn">LinkedIn</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-white mb-2">
+                        Social Media Username *
+                      </label>
+                      <Input
+                        value={formData.socialUsername}
+                        onChange={(e) => handleInputChange("socialUsername", e.target.value)}
+                        placeholder="@username"
+                        required
+                        className="w-full bg-gray-900/50 border-white/20 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300 focus:border-amber-400/50 focus:ring-amber-400/50 hover:border-amber-400/30"
+                      />
+                    </div>
+                  </>
+                )}
+
                 <div>
                   <label className="block text-sm font-medium text-white mb-2">
-                    Tell us about your project *
+                    Contact Number *
+                  </label>
+                  <Input
+                    type="tel"
+                    value={formData.contactNumber}
+                    onChange={(e) => handleInputChange("contactNumber", e.target.value)}
+                    placeholder="Your contact number"
+                    required
+                    className="w-full bg-gray-900/50 border-white/20 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300 focus:border-amber-400/50 focus:ring-amber-400/50 hover:border-amber-400/30"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-white mb-2">
+                    Message *
                   </label>
                   <Textarea
                     value={formData.message}
                     onChange={(e) => handleInputChange("message", e.target.value)}
-                    placeholder="Describe your goals, target audience, and what you're looking to achieve..."
+                    placeholder="Tell us more about your requirements..."
                     rows={5}
                     required
                     className="w-full bg-gray-900/50 border-white/20 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300 focus:border-amber-400/50 focus:ring-amber-400/50 hover:border-amber-400/30 min-h-[120px] resize-y"
@@ -184,69 +327,10 @@ const Contact = () => {
               </form>
             </div>
             
-            {/* Contact Info & Benefits */}
-            <div className="space-y-12 lg:mt-0 mt-8 lg:pl-8">
-              {/* Contact Information */}
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-8 backdrop-blur-sm">Get in Touch</h3>
-                <div className="grid gap-6">
-                  {contactInfo.map((info, index) => (
-                    <Card key={index} className="bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10 hover:border-amber-400/30 transition-all duration-500 backdrop-blur-sm hover:scale-[1.02] hover:shadow-2xl hover:shadow-amber-400/20 group">
-                      <CardContent className="p-6">
-                        <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
-                        <div className="flex items-start space-x-4">
-                          <div className="w-10 h-10 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110">
-                            <info.icon className="h-5 w-5 text-black" />
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-white">{info.title}</h4>
-                            <p className="text-white font-medium">{info.details}</p>
-                            <p className="text-sm text-gray-300">{info.subtitle}</p>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
-              
-              {/* What You Get */}
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-white mb-8 backdrop-blur-sm relative z-10 animate-fade-in-up">What You Get</h3>
-                <Card className="bg-gradient-to-br from-amber-400/10 to-yellow-500/10 border-amber-400/20 backdrop-blur-sm hover:scale-[1.02] transition-all duration-500 hover:shadow-2xl hover:shadow-amber-400/20 group p-2">
-                  <CardContent className="p-6 relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
-                    <ul className="space-y-4">
-                      {benefits.map((benefit, index) => (
-                        <li key={index} className="flex items-start space-x-3">
-                          <CheckCircle className="h-5 w-5 text-amber-400 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-300">{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </div>
-              
-              {/* Quick Stats */}
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-white mb-8 backdrop-blur-sm relative z-10 animate-fade-in-up">Why Choose Us</h3>
-                <div className="grid grid-cols-2 gap-8 backdrop-blur-sm relative z-10">
-                  {[
-                    { number: "24hr", label: "Response Time" },
-                    { number: "95%", label: "Client Retention" },
-                    { number: "22K+", label: "Active Creators" },
-                    { number: "320%", label: "Average ROI" }
-                  ].map((stat, index) => (
-                    <Card key={index} className="bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10 hover:border-amber-400/30 transition-all duration-500 backdrop-blur-sm hover:scale-[1.02] hover:shadow-2xl hover:shadow-amber-400/20 group text-center" style={{ animationDelay: `${index * 150}ms` }}>
-                      <CardContent className="p-4">
-                        <div className="text-3xl font-bold text-amber-400 mb-2 group-hover:scale-110 transition-transform duration-500">{stat.number}</div>
-                        <div className="text-sm text-gray-300 group-hover:text-white transition-colors duration-300">{stat.label}</div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
+            {/* Submissions History */}
+            <div className="mt-12 pt-8 border-t border-white/10">
+              <h2 className="text-2xl font-bold text-white mb-6">Recent Submissions</h2>
+              <SubmissionsHistory />
             </div>
           </div>
         </div>

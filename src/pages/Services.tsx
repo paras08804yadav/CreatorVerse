@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
+
 
 
 const Services = () => {
@@ -151,10 +153,12 @@ const Services = () => {
                   </div>
                   
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button size="lg" className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/20">
-                      Get Started
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
+                    <Link to={`/contact`}>
+                      <Button size="lg" className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/20">
+                        Get Started
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </Button>
+                    </Link>
                   </div>
                 </div>
                 

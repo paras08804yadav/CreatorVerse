@@ -130,46 +130,43 @@ const Index = () => {
 
   {/* Main Content */}
   <div className="max-w-7xl mx-auto relative z-20">
-    <div className="grid lg:grid-cols-2 gap-16 items-center mt-10">
-      <div className="text-left px-2 sm:px-0">
-        <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-8">
-          UGC & Influencer
-          <span className="gold-gradient block mt-2 animate-fade-in-up">Marketing Power</span>
-          <span className="text-white block">For Brands</span>
-        </h1>
+    <div className="flex flex-col items-center justify-center text-center mt-10">
+      <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-8 text-center">
+        UGC & Influencer
+        <span className="gold-gradient block mt-2 animate-fade-in-up">Marketing Agency</span>
+        <span className="text-white block">For Brands</span>
+      </h1>
 
-        <p className="text-lg text-gray-300 max-w-xl mb-10 leading-relaxed">
-          Turn content into conversions. Partner with verified creators & campaign strategists to fuel your digital presence.
-        </p>
+      <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Elevate your brand with authentic content creation and strategic influencer partnerships that drive real results.
+      </p>
 
-        <div className="flex flex-col sm:flex-row gap-6">
+      <div className="flex flex-col sm:flex-row gap-6 justify-center">
         <Link to="/contact">
           <Button
             size="lg"
             className="relative bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold px-8 py-4 rounded-xl shadow-2xl hover:shadow-amber-400/25 transition-all duration-500 group overflow-hidden hover:scale-105"
           >
-            Connect Now
+            Get Started Now
             <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
         </Link>
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-white/20 text-white hover:bg-white hover:text-black px-8 py-4 rounded-xl group transition-all duration-300"
-            asChild
+        <Button
+          size="lg"
+          variant="outline"
+          className="border-white/20 text-white hover:bg-white hover:text-black px-8 py-4 rounded-xl group transition-all duration-300"
+          asChild
+        >
+          <a
+            href="https://wa.me/919219135156"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center"
           >
-            <a
-              href="https://wa.me/919219135156"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center"
-            >
-              <Phone className="mr-3 h-5 w-5 group-hover:scale-110 transition-transform" />
-              Schedule a Meeting
-            </a>
-          </Button>
-
-        </div>
+            <Phone className="mr-3 h-5 w-5 group-hover:scale-110 transition-transform" />
+            Schedule a Meeting
+          </a>
+        </Button>
       </div>
     </div>
   </div>
@@ -325,6 +322,12 @@ const Index = () => {
             <li>• Social Media Boost</li>
           </ul>
           <p className="text-xs text-gray-400 mb-4">Perfect for: Fashion, Beauty, Food, Fitness</p>
+          <Link to="/contact?service=Influencer Generated Content">
+            <Button className="w-full bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 text-black font-semibold hover:scale-105 transition-all duration-300">
+              Get Started
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </CardContent>
       </Card>
 
@@ -342,6 +345,12 @@ const Index = () => {
             <li>• Platform Optimization</li>
           </ul>
           <p className="text-xs text-gray-400 mb-4">Perfect for: Travel, Decor, Tech, Pets</p>
+          <Link to="/contact?service=User Generated Content">
+            <Button className="w-full bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 text-black font-semibold hover:scale-105 transition-all duration-300">
+              Get Started
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </CardContent>
       </Card>
 
@@ -359,6 +368,12 @@ const Index = () => {
             <li>• Competitive Analysis</li>
           </ul>
           <p className="text-xs text-gray-400 mb-4">Perfect for: Growth Teams, Agencies</p>
+          <Link to="/contact?service=Viral Content Production">
+            <Button className="w-full bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 text-black font-semibold hover:scale-105 transition-all duration-300">
+              Get Started
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </CardContent>
       </Card>
     </div>
@@ -501,15 +516,27 @@ const Index = () => {
             to amplify their message and drive unprecedented growth through premium creator partnerships.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-            <Button size="lg" className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold px-12 py-6 rounded-2xl shadow-2xl hover:shadow-amber-400/25 transition-all duration-500 text-lg group hover:scale-105 relative overflow-hidden">
-              Start Your Campaign
-              <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white hover:text-black px-12 py-6 rounded-2xl text-lg transition-all duration-300">
-              Schedule Strategy Call
-            </Button>
-          </div>
+<div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+  {/* Start Your Campaign Button */}
+  <Button asChild size="lg" className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold px-12 py-6 rounded-2xl shadow-2xl hover:shadow-amber-400/25 transition-all duration-500 text-lg group hover:scale-105 relative overflow-hidden">
+    <Link to="/contact">
+      Start Your Campaign
+      <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+    </Link>
+  </Button>
+
+  {/* WhatsApp Button */}
+  <Button asChild size="lg" variant="outline" className="border-white/20 text-white hover:bg-white hover:text-black px-12 py-6 rounded-2xl text-lg transition-all duration-300">
+    <a
+      href="https://wa.me/919219135156"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Schedule Strategy Call
+    </a>
+  </Button>
+</div>
+
           
           
         </div>
