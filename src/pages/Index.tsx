@@ -463,7 +463,7 @@ const Index = () => {
           </p>
           <div className="flex items-center">
             <img 
-              src="https://media.licdn.com/dms/image/v2/D4D03AQHwG5CqhbPeeQ/profile-displayphoto-shrink_400_400/B4DZYp5iiUGkAg-/0/1744459674049?e=1757548800&v=beta&t=fqmKDyIw4MbMZbTeb1UlEs2ddqhmD9fWz2f7DtOscAw" 
+              src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
               alt="Client 3" 
               className="w-12 h-12 rounded-full mr-4"
             />
