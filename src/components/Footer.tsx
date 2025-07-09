@@ -108,14 +108,39 @@ const Footer = () => {
             <h3 className="text-lg font-bold text-white mb-6 tracking-tight">
               Services
             </h3>
-            <ul className="space-y-4">
-              <li className="text-gray-300">Influencer Generated Content</li>
-              <li className="text-gray-300">UGC Production</li>
-              <li className="text-gray-300">Viral Content Production</li>
-              <li className="text-gray-300">Content Strategy</li>
-              <li className="text-gray-300">Reel Script Writing </li>
-              <li className="text-gray-300">Product Shoot</li>
-            </ul>
+<ul className="space-y-4">
+  <li>
+    <Link to="/services" className="text-gray-300 hover:text-amber-400 transition-colors duration-300">
+      Influencer Generated Content
+    </Link>
+  </li>
+  <li>
+    <Link to="/services" className="text-gray-300 hover:text-amber-400 transition-colors duration-300">
+      UGC Production
+    </Link>
+  </li>
+  <li>
+    <Link to="/services" className="text-gray-300 hover:text-amber-400 transition-colors duration-300">
+      Viral Content Production
+    </Link>
+  </li>
+  <li>
+    <Link to="/services" className="text-gray-300 hover:text-amber-400 transition-colors duration-300">
+      Content Strategy
+    </Link>
+  </li>
+  <li>
+    <Link to="/services" className="text-gray-300 hover:text-amber-400 transition-colors duration-300">
+      Reel Script Writing
+    </Link>
+  </li>
+  <li>
+    <Link to="/services" className="text-gray-300 hover:text-amber-400 transition-colors duration-300">
+      Product Shoot
+    </Link>
+  </li>
+</ul>
+
           </div>
         </div>
 

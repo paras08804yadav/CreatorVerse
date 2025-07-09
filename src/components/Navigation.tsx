@@ -53,9 +53,21 @@ const Navigation = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-yellow-500 transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
-            <Button className="bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-yellow-500 hover:to-amber-400 text-black font-semibold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-              Start Your Campaign
-            </Button>
+            <div className="px-4 pt-4">
+              <Button
+                asChild
+                className="w-full bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-yellow-500 hover:to-amber-400 text-black font-semibold py-3 rounded-xl"
+              >
+                <a
+                  href="https://wa.me/919219135156"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Start Your Campaign
+                </a>
+              </Button>
+            </div>
+
           </div>
 
           {/* Mobile menu button */}
@@ -91,9 +103,22 @@ const Navigation = () => {
               </Link>
             ))}
             <div className="px-4 pt-4">
-              <Button className="w-full bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-yellow-500 hover:to-amber-400 text-black font-semibold py-3 rounded-xl">
-                Start Your Campaign
+            <div className="px-4 pt-4">
+              <Button
+                asChild
+                className="w-full bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-yellow-500 hover:to-amber-400 text-black font-semibold py-3 rounded-xl"
+              >
+                <a
+                  href="https://wa.me/919219135156"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Start Your Campaign
+                </a>
               </Button>
+            </div>
+
+              
             </div>
           </div>
         </div>

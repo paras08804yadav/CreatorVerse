@@ -4,25 +4,38 @@ import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import reel1 from "@/assets/reel1.mp4";
 import reel2 from "@/assets/reel2.mp4";
+import reel3 from "@/assets/reel3.mp4";
+import reel4 from "@/assets/reel4.mp4"
 
-const VideoDemo = ({ src, title, coverImage }: { src: string, title: string, coverImage: string }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
+
+const VideoDemo = ({
+  src,
+  title,
+  coverImage,
+  isPlayingGlobal,
+  onPlayRequest,
+}: {
+  src: string;
+  title: string;
+  coverImage: string;
+  isPlayingGlobal: boolean;
+  onPlayRequest: () => void;
+}) => {
+  const [isMuted, setIsMuted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const togglePlay = () => {
+  useEffect(() => {
     if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
+      if (isPlayingGlobal) {
         videoRef.current.play();
+      } else {
+        videoRef.current.pause();
       }
-      setIsPlaying(!isPlaying);
     }
-  };
+  }, [isPlayingGlobal]);
 
   const toggleMute = () => {
     if (videoRef.current) {
@@ -32,62 +45,58 @@ const VideoDemo = ({ src, title, coverImage }: { src: string, title: string, cov
   };
 
   return (
-    <div className="relative group rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-black border border-white/10 hover:border-amber-400/30 transition-all duration-500 aspect-[9/16] hover:scale-[1.02] hover:shadow-2xl hover:shadow-amber-400/20">
+    <div
+      onClick={onPlayRequest}
+      className="relative group rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-black border border-white/10 hover:border-amber-400/30 transition-all duration-500 aspect-[9/16] hover:scale-[1.02] hover:shadow-2xl hover:shadow-amber-400/20"
+    >
       <video
         ref={videoRef}
         className="w-full h-full object-cover"
         muted={isMuted}
-        onEnded={() => setIsPlaying(false)}
+        onEnded={() => {}}
       >
         <source src={src} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      
+
       <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
         <button
-          onClick={togglePlay}
+          onClick={(e) => {
+            e.stopPropagation();
+            onPlayRequest(); // set activeIndex
+          }}
           className="bg-white/20 backdrop-blur-sm rounded-full p-3 mr-2 hover:bg-white/30 transition-all duration-300 border border-white/20"
         >
-          {isPlaying ? <Pause className="h-5 w-5 text-white" /> : <Play className="h-5 w-5 text-white" />}
+          {isPlayingGlobal ? <Pause className="h-5 w-5 text-white" /> : <Play className="h-5 w-5 text-white" />}
         </button>
+
         <button
-          onClick={toggleMute}
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleMute();
+          }}
           className="bg-white/20 backdrop-blur-sm rounded-full p-3 hover:bg-white/30 transition-all duration-300 border border-white/20"
         >
           {isMuted ? <VolumeX className="h-4 w-4 text-white" /> : <Volume2 className="h-4 w-4 text-white" />}
         </button>
       </div>
-      
-      <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white px-3 py-2 rounded-lg text-sm font-medium border border-white/10">
+
+      <div className="absolute bottom-3 left-3 ml-6 bg-black/60 backdrop-blur-sm text-white px-3 py-2 rounded-lg text-sm font-medium border border-white/10">
         {title}
       </div>
     </div>
   );
 };
 
-const Index = () => {
-  const demoVideos = [
-    {
-      src: reel2,
-      title: "Luxury Brand Campaign",
-      coverImage: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=400&h=600&fit=crop"
 
-    },
-    {
-      src: reel1,
-      title: "Premium UGC Content", 
-      coverImage: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=400&h=600&fit=crop"
-    },
-    {
-      src: reel2,
-      title: "Viral Social Campaign",
-      coverImage: "https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=400&h=600&fit=crop"
-    },
-    {
-      src: reel1,
-      title: "Celebrity Collaboration",
-      coverImage: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400&h=600&fit=crop"
-    }
+const Index = () => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const demoVideos = [
+    { src: reel2, title: "Brand Storytelling", coverImage: "..." },
+    { src: reel3, title: "Educational Content", coverImage: "..." },
+    { src: reel1, title: "Pre Launching Campaign", coverImage: "..." },
+    { src: reel4, title: "Software promotion", coverImage: "..." },
   ];
 
   return (
@@ -134,14 +143,32 @@ const Index = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-6">
-          <Button size="lg" className="relative bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold px-8 py-4 rounded-xl shadow-2xl hover:shadow-amber-400/25 transition-all duration-500 group overflow-hidden hover:scale-105">
+        <Link to="/contact">
+          <Button
+            size="lg"
+            className="relative bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold px-8 py-4 rounded-xl shadow-2xl hover:shadow-amber-400/25 transition-all duration-500 group overflow-hidden hover:scale-105"
+          >
             Connect Now
             <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
-          <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white hover:text-black px-8 py-4 rounded-xl group transition-all duration-300">
-            <Play className="mr-3 h-5 w-5 group-hover:scale-110 transition-transform" />
-            Watch Success Stories
+        </Link>
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-white/20 text-white hover:bg-white hover:text-black px-8 py-4 rounded-xl group transition-all duration-300"
+            asChild
+          >
+            <a
+              href="https://wa.me/919219135156"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center"
+            >
+              <Phone className="mr-3 h-5 w-5 group-hover:scale-110 transition-transform" />
+              Schedule a Meeting
+            </a>
           </Button>
+
         </div>
       </div>
     </div>
@@ -247,13 +274,15 @@ const Index = () => {
           
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {demoVideos.map((video, index) => (
-              <VideoDemo
-                key={index}
-                src={video.src}
-                title={video.title}
-                coverImage={video.coverImage}
-              />
-            ))}
+            <VideoDemo
+              key={index}
+              src={video.src}
+              title={video.title}
+              coverImage={video.coverImage}
+              isPlayingGlobal={activeIndex === index}
+              onPlayRequest={() => setActiveIndex(prev => (prev === index ? null : index))}
+            />
+          ))}
           </div>
         </div>
       </section>
@@ -263,6 +292,7 @@ const Index = () => {
 
 
       {/* Services Preview */}
+{/* Services Preview */}
 <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] relative overflow-hidden">
   <div className="max-w-7xl mx-auto">
     <div className="text-center mb-20">
@@ -279,9 +309,10 @@ const Index = () => {
       </p>
     </div>
 
+    {/* Top 3 Services Only */}
     <div className="grid md:grid-cols-3 gap-10">
       {/* 1. Influencer Generated Content */}
-      <Card className="group bg-gradient-to-br from-gray-900/50 to-black/50 hover:shadow-2xl hover:border-amber-400/30 border-white/10 border transition-all duration-500 backdrop-blur-sm hover:scale-[1.02] hover:bg-gradient-to-br hover:from-gray-900/70 hover:to-black/70">
+      <Card className="group bg-gradient-to-br from-gray-900/50 to-black/50 hover:shadow-2xl hover:border-amber-400/30 border-white/10 border transition-all duration-500 backdrop-blur-sm hover:scale-[1.02]">
         <CardContent className="p-10">
           <h3 className="text-2xl font-bold text-white mb-4">Influencer Generated Content</h3>
           <p className="text-gray-300 mb-6">
@@ -294,16 +325,6 @@ const Index = () => {
             <li>• Social Media Boost</li>
           </ul>
           <p className="text-xs text-gray-400 mb-4">Perfect for: Fashion, Beauty, Food, Fitness</p>
-          <div className="flex flex-wrap gap-4">
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/20"
-            >
-              Get Started
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
-
         </CardContent>
       </Card>
 
@@ -321,16 +342,6 @@ const Index = () => {
             <li>• Platform Optimization</li>
           </ul>
           <p className="text-xs text-gray-400 mb-4">Perfect for: Travel, Decor, Tech, Pets</p>
-          <div className="flex flex-wrap gap-4">
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/20"
-            >
-              Get Started
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
-
         </CardContent>
       </Card>
 
@@ -348,90 +359,25 @@ const Index = () => {
             <li>• Competitive Analysis</li>
           </ul>
           <p className="text-xs text-gray-400 mb-4">Perfect for: Growth Teams, Agencies</p>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Button size="lg" className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/20">
-                      Get Started
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </div>
-        </CardContent>
-      </Card>
-
-      {/* 4. Content Strategy */}
-      <Card className="group bg-gradient-to-br from-gray-900 to-black hover:shadow-2xl hover:border-amber-400/30 border-white/10 border transition-all duration-500">
-        <CardContent className="p-10">
-          <h3 className="text-2xl font-bold text-white mb-4">Content Strategy</h3>
-          <p className="text-gray-300 mb-6">
-            Plan content that aligns with your audience and goals.
-          </p>
-          <ul className="space-y-2 text-gray-300 mb-4 text-sm">
-            <li>• Audience Persona Development</li>
-            <li>• Calendar Planning</li>
-            <li>• Platform Optimization</li>
-            <li>• Trend Forecasting</li>
-          </ul>
-          <p className="text-xs text-gray-400 mb-4">Perfect for: Startups, D2C, Corporates</p>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Button size="lg" className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/20">
-                      Get Started
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </div>
-        </CardContent>
-      </Card>
-
-      {/* 5. Reel Script Writing */}
-      <Card className="group bg-gradient-to-br from-gray-900 to-black hover:shadow-2xl hover:border-amber-400/30 border-white/10 border transition-all duration-500">
-        <CardContent className="p-10">
-          <h3 className="text-2xl font-bold text-white mb-4">Reel Script Writing</h3>
-          <p className="text-gray-300 mb-6">
-            Hook-focused, niche-specific scripts that convert scrolls to sales.
-          </p>
-          <ul className="space-y-2 text-gray-300 mb-4 text-sm">
-            <li>• Research-Based Hooks</li>
-            <li>• CTA Integration</li>
-            <li>• Viral Style Formatting</li>
-            <li>• Niche Personalization</li>
-          </ul>
-          <p className="text-xs text-gray-400 mb-4">Perfect for: Creators, D2C Brands, Agencies</p>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Button size="lg" className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/20">
-                      Get Started
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </div>
-        </CardContent>
-      </Card>
-
-      {/* 6. Product Shoot (Add-on) */}
-      <Card className="group bg-gradient-to-br from-gray-900 to-black hover:shadow-2xl hover:border-amber-400/30 border-white/10 border transition-all duration-500">
-        <CardContent className="p-10">
-          <h3 className="text-2xl font-bold text-white mb-4">Product Shoot (Add-on)</h3>
-          <p className="text-gray-300 mb-6">
-            Sharp, studio-grade visuals that elevate your brand content.
-          </p>
-          <ul className="space-y-2 text-gray-300 mb-4 text-sm">
-            <li>• Lighting & Studio Setup</li>
-            <li>• Multi-Angle Shots</li>
-            <li>• Styled for Reels/UGC</li>
-            <li>• Quick Delivery</li>
-          </ul>
-          <p className="text-xs text-gray-400 mb-4">Perfect for: Product Brands, Instagram Shops</p>
-          <div className="flex flex-wrap gap-4">
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/20"
-            >
-              Get Started
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
-
         </CardContent>
       </Card>
     </div>
+
+    {/* View All Services Button */}
+    <div className="mt-16 text-center">
+      <Link to="/services">
+        <Button
+          size="lg"
+          className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 text-black font-bold px-8 py-4 rounded-xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-amber-400/20"
+        >
+          View All Services
+          <ArrowRight className="ml-3 h-5 w-5" />
+        </Button>
+      </Link>
+    </div>
   </div>
 </section>
+
 
 
 
@@ -522,8 +468,8 @@ const Index = () => {
               className="w-12 h-12 rounded-full mr-4"
             />
             <div>
-              <div className="text-white font-semibold">Indrajit Singh</div>
-              <div className="text-amber-400 text-sm">Founder, RegisCorp</div>
+              <div className="text-white font-semibold">Aman Singh</div>
+              <div className="text-amber-400 text-sm">Founder, FMS</div>
             </div>
           </div>
         </CardContent>
@@ -551,13 +497,13 @@ const Index = () => {
           </h2>
           
           <p className="text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-            Join the ranks of Fortune 500 companies and luxury brands who trust CreatorVerse 
+            Join the ranks of companies and luxury brands who trust CreatorVerse 
             to amplify their message and drive unprecedented growth through premium creator partnerships.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
             <Button size="lg" className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold px-12 py-6 rounded-2xl shadow-2xl hover:shadow-amber-400/25 transition-all duration-500 text-lg group hover:scale-105 relative overflow-hidden">
-              Start Your Premium Campaign
+              Start Your Campaign
               <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white hover:text-black px-12 py-6 rounded-2xl text-lg transition-all duration-300">
