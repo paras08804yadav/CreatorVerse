@@ -9,8 +9,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
-import SubmissionsHistory from '@/components/SubmissionsHistory';
-
 const FORM_DATA_KEY = 'creatorverse_contact_form';
 const SUBMISSIONS_KEY = 'creatorverse_submissions';
 
