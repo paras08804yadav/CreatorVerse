@@ -137,7 +137,7 @@ const Index = () => {
         {/* <span className="text-white "> For Brands</span> */}
       </h1>
 
-      <p className="text-lg md:text-2xl text-gray-300 max-w mx-auto mb-10 leading-relaxed">
+      <p className="text-lg md:text-xl text-gray-300 max-w mx-auto mb-10 leading-relaxed">
         Elevate your brand with authentic content creation and strategic influencer partnerships that drive real results.
       </p>
 
