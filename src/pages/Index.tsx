@@ -81,9 +81,10 @@ const VideoDemo = ({
         </button>
       </div>
 
-      <div className="absolute bottom-3 left-3 ml-6 bg-black/60 backdrop-blur-sm text-white px-3 py-2 rounded-lg text-sm font-medium border border-white/10">
+      <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 bg-black/60 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-medium border border-white/10 whitespace-nowrap max-w-[90%] overflow-hidden text-ellipsis">
         {title}
       </div>
+
     </div>
   );
 };
@@ -104,7 +105,7 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-<section className="pt-24 pb-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden min-h-[780px] bg-[#0a0a0a]">
+<section className="pt-4 md:pt-24 pb-12 md:pb-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden min-h-[65vh] md:min-h-[780px] bg-[#0a0a0a]">
   {/* Background Video */}
   <div className="absolute inset-0 z-0">
     <video
@@ -129,45 +130,45 @@ const Index = () => {
   </div>
 
   {/* Main Content */}
-  <div className="max-w-7xl mx-auto relative z-20">
-    <div className="flex flex-col items-center justify-center text-center mt-52">
-      <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-8 text-center">
-        UGC & Influencer
-        <span className="gold-gradient animate-fade-in-up"> Marketing Agency</span>
-        {/* <span className="text-white "> For Brands</span> */}
-      </h1>
+<div className="max-w-7xl mx-auto relative z-20">
+  <div className="flex flex-col items-center justify-center text-center mt-[7.5rem] lg:mt-52">
+    <h1 className="text-[2.25rem] xs:text-4xl sm:text-[2.75rem] md:text-5xl lg:text-[3.5rem] xl:text-7xl font-bold md:font-extrabold text-white leading-tight mb-6 md:mb-8 text-center px-4">
+      UGC & Influencer 
+      <span className="gold-gradient animate-fade-in-up  sm:block  mt-1 sm:mt-0 md:block md:mt-1 lg:inline xl:inline"> Marketing Agency</span>
+    </h1>
 
-      <p className="text-lg md:text-xl text-gray-300 max-w mx-auto mb-10 leading-relaxed">
-        Elevate your brand with authentic content creation and strategic influencer partnerships that drive real results.
-      </p>
 
-<div className="flex flex-col sm:flex-row gap-6 justify-center">
-  <Link to="/contact">
-    <Button
-      size="lg" 
-      className="relative bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 text-black font-bold px-10 py-6 rounded-xl shadow-2xl hover:shadow-amber-400/25 transition-all duration-500 group overflow-hidden hover:scale-105 text-lg" 
-    >
-      Get Started Now
-      <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" /> {/* Increased icon size */}
-    </Button>
-  </Link>
-  <Button
-    size="lg" 
-    variant="outline"
-    className="border-white/20 text-white hover:bg-white hover:text-black px-10 py-6 rounded-xl group transition-all duration-300 text-lg"
-    asChild
-  >
-    <a
-      href="https://wa.me/919219135156"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center"
-    >
-      <Phone className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" /> {/* Increased icon size */}
-      Schedule a Meeting
-    </a>
-  </Button>
-</div>
+            <p className="text-base md:text-xl text-gray-300 max-w mx-auto mb-10 leading-relaxed">
+              Elevate your brand with authentic content creation and strategic influencer partnerships that drive real results.
+            </p>
+
+    <div className="flex flex-col sm:flex-row gap-6 justify-center">
+      <Link to="/contact">
+        <Button
+          size="lg" 
+          className="relative bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 text-black font-bold px-10 py-6 rounded-xl shadow-2xl hover:shadow-amber-400/25 transition-all duration-500 group overflow-hidden hover:scale-105 text-lg" 
+        >
+          Get Started Now
+          <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" /> {/* Increased icon size */}
+        </Button>
+      </Link>
+      <Button
+        size="lg" 
+        variant="outline"
+        className="border-white/20 text-white hover:bg-white hover:text-black px-10 py-6 rounded-xl group transition-all duration-300 text-lg"
+        asChild
+      >
+        <a
+          href="https://wa.me/919219135156"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center"
+        >
+          <Phone className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" /> {/* Increased icon size */}
+          Schedule a Meeting
+        </a>
+      </Button>
+    </div>
     </div>
   </div>
 </section>
@@ -184,7 +185,7 @@ const Index = () => {
         What Makes
         <span className="gold-gradient block">CreatorVerse Different</span>
       </h2>
-      <p className="text-xl text-gray-300 max-w-xl mx-auto">
+      <p className="text-base text-gray-300 max-w-xl mx-auto">
         Built for modern brands — we blend real creators, content strategy, and trend-based execution to help you grow online.
       </p>
     </div>
@@ -264,12 +265,12 @@ const Index = () => {
               Campaigns That
               <span className="gold-gradient block">Actually Performed</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-xl mx-auto">
+            <p className="text-base text-gray-300 max-w-xl mx-auto">
               Real brands. Real creators. Real growth. These campaigns made waves across reels, shorts, and more.
             </p>
           </div>
           
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 sm lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {demoVideos.map((video, index) => (
             <VideoDemo
               key={index}
@@ -297,7 +298,7 @@ const Index = () => {
         Everything You Need
         <span className="gold-gradient block">To Grow Online</span>
       </h2>
-      <p className="text-xl text-gray-300 max-w-xl mx-auto">
+      <p className="text-base text-gray-300 max-w-xl mx-auto">
         From real creators to performance insights — our end-to-end services are built to scale your brand fast.
       </p>
     </div>
@@ -402,7 +403,7 @@ const Index = () => {
         What Our Clients
         <span className="gold-gradient block">Say About Us</span>
       </h2>
-      <p className="text-xl text-gray-300 max-w-xl mx-auto">
+      <p className="text-base text-gray-300 max-w-3xl mx-auto">
         We partner with brands that are shaping culture. Here’s how CreatorVerse has helped them scale faster, smarter, and more creatively.
       </p>
     </div>
@@ -416,7 +417,7 @@ const Index = () => {
               <Star key={i} className="h-5 w-5 text-amber-400 fill-amber-400" />
             ))}
           </div>
-          <p className="text-gray-300 mb-6 italic leading-relaxed">
+          <p className="text-base text-gray-300 mb-6 italic leading-relaxed">
             "CreatorVerse played a huge role in our pre-launch success. Their content helped us reach over 2 million people organically and generated more than 25,000 app registrations. The videos were not just creative — they were truly magical and viral."
           </p>
           <div className="flex items-center">
@@ -441,7 +442,7 @@ const Index = () => {
               <Star key={i} className="h-5 w-5 text-amber-400 fill-amber-400" />
             ))}
           </div>
-          <p className="text-gray-300 mb-6 italic leading-relaxed">
+          <p className="text-base text-gray-300 mb-6 italic leading-relaxed">
             "CreatorVerse didn’t just deliver content — they helped us generate high-quality leads through impactful UGC. The team is incredibly polite, professional, and easy to work with."
           </p>
           <div className="flex items-center">
@@ -466,7 +467,7 @@ const Index = () => {
               <Star key={i} className="h-5 w-5 text-amber-400 fill-amber-400" />
             ))}
           </div>
-          <p className="text-gray-300 mb-6 italic leading-relaxed">
+          <p className="text-base text-gray-300 mb-6 italic leading-relaxed">
             "I truly appreciate the work I’ve done with CreatorVerse. They’re not only excellent at what they do, but also far more affordable than other agencies."
           </p>
           <div className="flex items-center">
@@ -494,12 +495,12 @@ const Index = () => {
         </div>
         
         <div className="max-w-5xl mx-auto text-center relative z-10">          
-          <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+          <h2 className="text-3xl  md:text-6xl font-bold text-white mb-8 leading-tight">
             Transform Your Brand Into
             <span className="gold-gradient block">An Industry Legend</span>
           </h2>
           
-          <p className="text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
             Join the ranks of companies and luxury brands who trust CreatorVerse 
             to amplify their message and drive unprecedented growth through premium creator partnerships.
           </p>
