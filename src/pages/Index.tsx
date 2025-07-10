@@ -130,44 +130,44 @@ const Index = () => {
 
   {/* Main Content */}
   <div className="max-w-7xl mx-auto relative z-20">
-    <div className="flex flex-col items-center justify-center text-center mt-10">
+    <div className="flex flex-col items-center justify-center text-center mt-52">
       <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-8 text-center">
         UGC & Influencer
-        <span className="gold-gradient block mt-2 animate-fade-in-up">Marketing Agency</span>
-        <span className="text-white block">For Brands</span>
+        <span className="gold-gradient animate-fade-in-up"> Marketing Agency</span>
+        {/* <span className="text-white "> For Brands</span> */}
       </h1>
 
-      <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+      <p className="text-lg md:text-2xl text-gray-300 max-w mx-auto mb-10 leading-relaxed">
         Elevate your brand with authentic content creation and strategic influencer partnerships that drive real results.
       </p>
 
-      <div className="flex flex-col sm:flex-row gap-6 justify-center">
-        <Link to="/contact">
-          <Button
-            size="lg"
-            className="relative bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold px-8 py-4 rounded-xl shadow-2xl hover:shadow-amber-400/25 transition-all duration-500 group overflow-hidden hover:scale-105"
-          >
-            Get Started Now
-            <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
-        </Link>
-        <Button
-          size="lg"
-          variant="outline"
-          className="border-white/20 text-white hover:bg-white hover:text-black px-8 py-4 rounded-xl group transition-all duration-300"
-          asChild
-        >
-          <a
-            href="https://wa.me/919219135156"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center"
-          >
-            <Phone className="mr-3 h-5 w-5 group-hover:scale-110 transition-transform" />
-            Schedule a Meeting
-          </a>
-        </Button>
-      </div>
+<div className="flex flex-col sm:flex-row gap-6 justify-center">
+  <Link to="/contact">
+    <Button
+      size="lg" 
+      className="relative bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 text-black font-bold px-10 py-6 rounded-xl shadow-2xl hover:shadow-amber-400/25 transition-all duration-500 group overflow-hidden hover:scale-105 text-lg" 
+    >
+      Get Started Now
+      <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" /> {/* Increased icon size */}
+    </Button>
+  </Link>
+  <Button
+    size="lg" 
+    variant="outline"
+    className="border-white/20 text-white hover:bg-white hover:text-black px-10 py-6 rounded-xl group transition-all duration-300 text-lg"
+    asChild
+  >
+    <a
+      href="https://wa.me/919219135156"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center"
+    >
+      <Phone className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" /> {/* Increased icon size */}
+      Schedule a Meeting
+    </a>
+  </Button>
+</div>
     </div>
   </div>
 </section>
