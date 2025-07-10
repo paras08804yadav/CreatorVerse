@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { blogPosts } from './Blog';
 import { blogContents } from '@/data/blogContent';
-import ReactMarkdown from 'react-markdown';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Clock, User, Tag as TagIcon } from 'lucide-react';
@@ -70,28 +69,7 @@ const BlogPost = () => {
           <div className="lg:col-span-8">
             <Card className="bg-gray-900/50 border-white/10 p-8">
               <div className="prose prose-lg prose-invert max-w-none">
-                <ReactMarkdown
-                  components={{
-                    h1: ({ node, ...props }) => <h1 className="text-3xl font-bold mb-6 text-amber-400" {...props} />,
-                    h2: ({ node, ...props }) => <h2 className="text-2xl font-bold mb-4 text-amber-400" {...props} />,
-                    h3: ({ node, ...props }) => <h3 className="text-xl font-bold mb-3 text-amber-400" {...props} />,
-                    p: ({ node, ...props }) => <p className="mb-4 text-gray-300 leading-relaxed" {...props} />,
-                    ul: ({ node, ...props }) => <ul className="list-disc list-inside mb-4 space-y-2" {...props} />,
-                    ol: ({ node, ...props }) => <ol className="list-decimal list-inside mb-4 space-y-2" {...props} />,
-                    li: ({ node, ...props }) => <li className="text-gray-300" {...props} />,
-                    blockquote: ({ node, ...props }) => (
-                      <blockquote className="border-l-4 border-amber-400 pl-4 my-4 italic text-gray-300" {...props} />
-                    ),
-                    code: ({ node, ...props }) => (
-                      <code className="bg-black/30 rounded px-1 py-0.5 text-amber-400" {...props} />
-                    ),
-                    pre: ({ node, ...props }) => (
-                      <pre className="bg-black/30 rounded p-4 overflow-x-auto mb-4" {...props} />
-                    ),
-                  }}
-                >
-                  {content.content}
-                </ReactMarkdown>
+                
               </div>
             </Card>
           </div>
