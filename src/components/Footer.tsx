@@ -18,7 +18,7 @@ const Footer = () => {
             </div>
             
             <p className="text-gray-300 mb-8 max-w-md leading-relaxed">
-              The Kanpur's most exclusive creator marketing agency. We connect brands 
+              The most exclusive creator marketing agency. We connect brands 
               with creators to produce campaigns that redefine industry standards and 
               deliver unprecedented ROI.
             </p>

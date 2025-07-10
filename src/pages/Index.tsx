@@ -176,15 +176,15 @@ const Index = () => {
 <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0a0a0a] to-[#111111] relative overflow-hidden">
   <div className="max-w-7xl mx-auto">
     <div className="text-center mb-20">
-      <div className="inline-flex items-center px-4 py-2 rounded-full bg-amber-400/10 border border-amber-400/20 mb-6">
+      {/* <div className="inline-flex items-center px-4 py-2 rounded-full bg-amber-400/10 border border-amber-400/20 mb-6">
         <Sparkles className="h-4 w-4 text-amber-400 mr-2" />
         <span className="text-amber-400 text-sm font-medium">Exclusive Features</span>
-      </div>
+      </div> */}
       <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
         What Makes
         <span className="gold-gradient block">CreatorVerse Different</span>
       </h2>
-      <p className="text-xl text-gray-300 max-w-4xl mx-auto">
+      <p className="text-xl text-gray-300 max-w-xl mx-auto">
         Built for modern brands — we blend real creators, content strategy, and trend-based execution to help you grow online.
       </p>
     </div>
@@ -256,15 +256,15 @@ const Index = () => {
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-900">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-amber-400/10 border border-amber-400/20 mb-6">
+            {/* <div className="inline-flex items-center px-4 py-2 rounded-full bg-amber-400/10 border border-amber-400/20 mb-6">
               <Play className="h-4 w-4 text-amber-400 mr-2" />
               <span className="text-amber-400 text-sm font-medium">Success Stories</span>
-            </div>
+            </div> */}
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Campaigns That
               <span className="gold-gradient block">Actually Performed</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-xl mx-auto">
               Real brands. Real creators. Real growth. These campaigns made waves across reels, shorts, and more.
             </p>
           </div>
@@ -293,15 +293,11 @@ const Index = () => {
 <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] relative overflow-hidden">
   <div className="max-w-7xl mx-auto">
     <div className="text-center mb-20">
-      <div className="inline-flex items-center px-4 py-2 rounded-full bg-amber-400/10 border border-amber-400/20 mb-6">
-        <Zap className="h-4 w-4 text-amber-400 mr-2" />
-        <span className="text-amber-400 text-sm font-medium">Our Services</span>
-      </div>
       <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
         Everything You Need
         <span className="gold-gradient block">To Grow Online</span>
       </h2>
-      <p className="text-xl text-gray-300 max-w-4xl mx-auto">
+      <p className="text-xl text-gray-300 max-w-xl mx-auto">
         From real creators to performance insights — our end-to-end services are built to scale your brand fast.
       </p>
     </div>
@@ -401,10 +397,7 @@ const Index = () => {
 <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br bg-gray-900">
   <div className="max-w-7xl mx-auto">
     <div className="text-center mb-20">
-      <div className="inline-flex items-center px-4 py-2 rounded-full bg-amber-400/10 border border-amber-400/20 mb-6">
-        <Star className="h-4 w-4 text-amber-400 mr-2" />
-        <span className="text-amber-400 text-sm font-medium">Client Success</span>
-      </div>
+
       <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
         What Our Clients
         <span className="gold-gradient block">Say About Us</span>
@@ -500,12 +493,7 @@ const Index = () => {
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-amber-400/10 to-yellow-500/10"></div>
         </div>
         
-        <div className="max-w-5xl mx-auto text-center relative z-10">
-          <div className="inline-flex items-center px-6 py-3 rounded-full bg-amber-400/10 border border-amber-400/20 mb-8">
-            <Crown className="h-5 w-5 text-amber-400 mr-2" />
-            <span className="text-amber-400 font-medium">Ready to Dominate?</span>
-          </div>
-          
+        <div className="max-w-5xl mx-auto text-center relative z-10">          
           <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
             Transform Your Brand Into
             <span className="gold-gradient block">An Industry Legend</span>
