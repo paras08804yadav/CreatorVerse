@@ -16,7 +16,7 @@ const About = () => {
       name: "Tanisha Bhati",
       role: "Content Writer",
       image: "https://media.licdn.com/dms/image/v2/D4D03AQHCYjQjctgbpw/profile-displayphoto-crop_800_800/B4DZd9q8L4HAAU-/0/1750160098829?e=1757548800&v=beta&t=5oseMxrtc3AFT_EY6bzNCsl062EUk33Lgr4mWoN6v_Q",
-      bio: "3+ years experiemce in content writing.",
+      bio: "3+ years experience in content writing.",
     },
     {
       name: "Naman Soni",
@@ -48,87 +48,106 @@ const About = () => {
     <div className="min-h-screen bg-black text-white">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] relative overflow-hidden">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-amber-400 opacity-10 rounded-full blur-[120px] animate-float"></div>
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-yellow-500 opacity-5 rounded-full blur-[140px] animate-float-delayed"></div>
-        </div>
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 relative z-10 animate-fade-in-up">
-            We're Redefining
-            <span className="gold-gradient block mt-2">
-              Creator Marketing
-            </span>
-          </h1>
-          <p className="text-xl text-gray-300 leading-relaxed">
-            CreatorVerse was born from a simple belief: authentic content from real creators 
-            drives better results than traditional advertising. We're here to make that connection seamless.
+    
+  {/* Hero Section */}
+<section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden min-h-[500px]">
+  {/* Background Image - Moved outside z-0 div */}
+  <div className="absolute inset-0 z-0">
+    <img
+      src="https://images.pexels.com/photos/599982/pexels-photo-599982.jpeg"
+      className="w-full h-full object-cover opacity-80"
+      alt="Background"
+    />
+  </div>
+
+  {/* Gradient Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#111111]/90 to-[#0a0a0a] z-1"></div>
+
+  {/* Animated elements - now on top of image but below content */}
+  <div className="absolute inset-0 z-2">
+    <div className="absolute top-20 left-10 w-72 h-72 bg-amber-400 opacity-10 rounded-full blur-[120px] animate-float"></div>
+    <div className="absolute bottom-10 right-10 w-96 h-96 bg-yellow-500 opacity-5 rounded-full blur-[140px] animate-float-delayed"></div>
+  </div>
+
+  {/* Content */}
+  <div className="max-w-4xl mx-auto text-center relative z-10">
+    <h1 className="py-8 text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in-up">
+      We're Redefining
+      <span className="gold-gradient block mt-2">
+        Creator Marketing
+      </span>
+    </h1>
+    <p className="text-xl text-white/90 leading-relaxed sm:text-base">
+      CreatorVerse was born from a simple belief: authentic content from real creators 
+      drives better results than traditional advertising. We're here to make that connection seamless.
+    </p>
+  </div>
+</section>
+
+{/* Story Section - Centered Heading All Screens */}
+<section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#0a0a0a] to-[#111111]">
+  <div className="max-w-7xl mx-auto">
+    {/* Centered heading for all screens */}
+    <div className="text-center mb-12 lg:mb-16">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+        Our Story
+      </h2>
+    </div>
+
+    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      {/* Text Content - Left on desktop */}
+      <div className="order-2 lg:order-1">
+        <div className="space-y-6 text-gray-300 text-base lg:text-lg leading-relaxed">
+<p className="transition-all duration-300 hover:text-white lg:hover:pl-2">Two guys.
+          <span className="block transition-all duration-300 hover:text-white lg:hover:pl-2">Tired of chasing 9 to 5s they never wanted. </span></p>
+          <p className="transition-all duration-300 hover:text-white lg:hover:pl-2">
+            After building 100M+ views across the internet, growing multiple pages, and still facing the same question:
+            "Why is there no creator-first agency in our own city?"
+          </p>
+          <p className="transition-all duration-300 hover:text-white lg:hover:pl-2">
+            We realized something big was missing — not just in Kanpur, but in India's tier-2 & tier-3 cities:
+          </p>
+          <p className="transition-all duration-300 hover:text-white lg:hover:pl-2">
+            No structure. No scripting. No proper influencer support.
+            Only unplanned, unpolished content — and creators getting left behind.
+          </p>
+          <p className="transition-all duration-300 hover:text-white lg:hover:pl-2">
+            That's when we decided — enough.
+          </p>
+          <p className="transition-all duration-300 hover:text-white lg:hover:pl-2">
+            We didn't want to work for brands anymore.
+            We wanted to build something that builds creators.
+          </p>
+          <p className="transition-all duration-300 hover:text-white lg:hover:pl-2">
+            And that's how CreatorVerse was born.
+            Not just a team. Not just a company.
+          </p>
+          <p className="transition-all duration-300 hover:text-white lg:hover:pl-2">
+            From scripting to execution, we believe creators need more than likes —
+            They need direction, structure, and a team that actually gets it.
+          </p>
+          <p className="transition-all duration-300 hover:text-white lg:hover:pl-2">
+            A revolution — for creators and brands, starting right here in Kanpur.
           </p>
         </div>
-      </section>
+      </div>
 
-      {/* Story Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Our Story</h2>
-              <div className="space-y-4 text-gray-300">
-              <p>
-                At CreatorVerse, we’re driven by one clear vision — to make creator-brand collaborations effortless and impactful. 
-                In today’s fast-moving digital world, we noticed a gap: creators had the creativity, brands had the mission — but the connection was missing.
-              </p>
-              <p>
-                Our team brings deep experience from both marketing and creator ecosystems. We've worked behind the scenes of successful brand campaigns and know what it takes to deliver real engagement, not vanity metrics.
-              </p>
-              <p>
-                CreatorVerse isn't just a service — it's a partner for brands ready to grow through meaningful content. 
-                With every project, we aim to deliver more than results — we deliver relevance, creativity, and connection.
-              </p>
-
-              </div>
-            </div>
-            <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop"
-                alt="Team collaboration"
-                className="rounded-2xl shadow-xl border border-white/10"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-black">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Values</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              These principles guide everything we do, from creator partnerships to client relationships
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {values.map((value, index) => (
-              <Card key={index} className="bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10 hover:border-amber-400/30 transition-all duration-500 backdrop-blur-sm hover:scale-[1.02] hover:shadow-2xl hover:shadow-amber-400/20 group">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 group-hover:bg-pos-100 rounded-full flex items-center justify-center mx-auto mb-6 transform transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-amber-400/20">
-                    <value.icon className="h-8 w-8 text-black" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-4">{value.title}</h3>
-                  <p className="text-gray-300">{value.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Image - Right on desktop, after heading on mobile */}
+      <div className="order-1 lg:order-2 relative group">
+        <div className="absolute -inset-2 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-2xl opacity-0 group-hover:opacity-20 blur-md transition-all duration-500"></div>
+        <img 
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop&q=80" 
+          alt="Team collaboration"
+          className="relative rounded-2xl shadow-xl lg:shadow-2xl border border-white/10 w-full h-auto max-h-[500px] object-cover transform transition-all duration-300 group-hover:lg:scale-[1.02] z-10"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-2xl z-10"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Team Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+<section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-white/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Meet Our Team</h2>
