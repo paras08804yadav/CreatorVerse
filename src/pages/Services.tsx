@@ -91,7 +91,7 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
+    <div className="min-h-screen  bg-gray-900 text-white">
       <Navigation />
       
       {/* Hero Section */}
@@ -153,12 +153,21 @@ const Services = () => {
                   </div>
                   
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Link to={`/contact`}>
-                      <Button size="lg" className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/20">
-                        Get Started
-                        <ArrowRight className="ml-2 h-5 w-5" />
-                      </Button>
-                    </Link>
+                    
+                      <Link to="/contact" className="w-fit">
+  <Button
+    size="lg"
+    className="relative overflow-hidden bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-size-200 hover:bg-pos-100 text-black font-bold transition-all duration-500 hover:scale-[1.03]  group"
+  >
+    <span className="relative z-10 flex items-center">
+      Get Started
+      <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+    </span>
+ 
+  </Button>
+</Link>
+
+
                   </div>
                 </div>
                 
