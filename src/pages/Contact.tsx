@@ -47,19 +47,6 @@ const Contact = () => {
     localStorage.setItem(FORM_DATA_KEY, JSON.stringify(formData));
   }, [formData]);
 
-  const saveSubmission = (data: typeof formData) => {
-    try {
-      const submissions = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || '[]');
-      submissions.push({
-        ...data,
-        submittedAt: new Date().toISOString(),
-        status: 'pending'
-      });
-      localStorage.setItem(SUBMISSIONS_KEY, JSON.stringify(submissions));
-    } catch (error) {
-      console.error('Error saving submission:', error);
-    }
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -73,8 +60,6 @@ const Contact = () => {
         }
       });
       
-      // Save submission to localStorage
-      saveSubmission(formData);
 
       toast.success("Thank you! We'll get back to you within 24 hours.");
       
@@ -327,11 +312,6 @@ const Contact = () => {
               </form>
             </div>
             
-            {/* Submissions History */}
-            <div className="mt-12 pt-8 border-t border-white/10">
-              <h2 className="text-2xl font-bold text-white mb-6">Recent Submissions</h2>
-              <SubmissionsHistory />
-            </div>
           </div>
         </div>
       </section>
