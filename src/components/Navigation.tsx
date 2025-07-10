@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,6 +9,25 @@ import logo from "@/assets/logo.png";
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+  const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      setIsOpen(false);
+    }
+  };
+
+  if (isOpen) {
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside); // Add this
+  }
+
+  return () => {
+    document.removeEventListener('mousedown', handleClickOutside);
+    document.removeEventListener('touchstart', handleClickOutside); // Add this
+  };
+}, [isOpen]);
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -86,7 +105,7 @@ const Navigation = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden bg-black/98 backdrop-blur-xl border-t border-white/10">
+        <div ref={menuRef} className="md:hidden bg-black/98 backdrop-blur-xl border-t border-white/10">
           <div className="px-4 pt-4 pb-6 space-y-3">
             {navLinks.map((link) => (
               <Link
