@@ -402,7 +402,7 @@ const Index = () => {
         What Our Clients
         <span className="gold-gradient block">Say About Us</span>
       </h2>
-      <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+      <p className="text-xl text-gray-300 max-w-xl mx-auto">
         We partner with brands that are shaping culture. Here’s how CreatorVerse has helped them scale faster, smarter, and more creatively.
       </p>
     </div>
