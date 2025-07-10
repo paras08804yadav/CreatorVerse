@@ -76,30 +76,28 @@ const Services = () => {
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS71Gtw1SPCtYJMbp7aBZLXvRaOWYUDKYNN2w&s"
     },
     {
-      icon: Target, 
+      icon: Target, // Changed to microphone/voice icon
       title: "Professional Voice Over Services",
       description: "Elevate your content with studio-quality voice overs in multiple languages and styles, perfect for commercials, explainers, and brand narratives.",
       features: [
         "Native-speaking voice artists",
         "Multiple language options",
         "Commercial & conversational styles",
-        "Fast 24-48 hour turnaround",
         "Audio post-production included",
-        "Unlimited revisions"
+        
       ],
       targetAudience: "Video producers, ad agencies, e-learning platforms, content creators needing professional narration",
       image: "https://images.pexels.com/photos/3783471/pexels-photo-3783471.jpeg"
     }
   ];
 
+  
   return (
-    <div className="min-h-screen  bg-gray-900 text-white">
+    <div className="min-h-screen bg-[#0a0a0a] text-white">
       <Navigation />
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] relative overflow-hidden">
-        
-        
         {/* Animated background elements */}
         <div className="absolute inset-0 z-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-amber-400 opacity-10 rounded-full blur-[120px] animate-float"></div>
@@ -119,75 +117,139 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Services Grid - Modified Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
-        <div className="max-w-7xl mx-auto">
-          <div className="space-y-8 md:space-y-20 relative z-10"> {/* Changed space-y-20 to space-y-8 on mobile */}
-            {/* Background elements unchanged */}
-            
-            {services.map((service, index) => (
-              <Card key={index} className="bg-gray-900/50 border border-white/10 group hover:border-amber-400/30 transition-all duration-300 overflow-hidden">
-                <CardContent className="p-6 md:p-8">
-                  {/* Mobile Layout - Column */}
-                  <div className="flex flex-col md:hidden">
-                    {/* Service Header */}
+      {/* Services Grid */}
+
+
+    <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="space-y-8 md:space-y-20">
+          {services.map((service, index) => (
+            <div key={index}>
+              {/* Mobile View */}
+              <div className="md:hidden mb-10">
+                <Card className="bg-gray-900/50 border border-white/10 hover:border-amber-400/30 transition-all">
+                  <CardContent className="p-6">
                     <div className="flex items-center mb-4">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 rounded-lg flex items-center justify-center mr-3">
-                        <service.icon className="h-5 w-5 md:h-6 md:w-6 text-black" />
+                      <div className="w-10 h-10 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-lg flex items-center justify-center mr-3">
+                        <service.icon className="h-5 w-5 text-black" />
                       </div>
-                      <h2 className="text-xl font-bold text-white">{service.title}</h2>
+                      <h2 className="text-2xl font-bold text-white">{service.title}</h2>
                     </div>
                     
-                    {/* Image - Top on mobile */}
-                    <div className="relative mb-6 rounded-xl overflow-hidden">
-                      <img 
-                        src={service.image}
-                        alt={service.title}
-                        className="w-full h-48 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                    <div className="relative mb-6 rounded-xl overflow-hidden h-48">
+                      <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                     </div>
                     
-                    {/* Content */}
                     <div className="space-y-4">
                       <p className="text-gray-300">{service.description}</p>
                       
                       <div>
-                        <h3 className="font-semibold text-white mb-2">What's Included:</h3>
+                        <h3 className="font-semibold text-white mb-2">Includes:</h3>
                         <ul className="space-y-2">
                           {service.features.map((feature, i) => (
-                            <li key={i} className="flex items-start">
-                              <CheckCircle className="h-4 w-4 text-amber-400 mr-2 mt-0.5 flex-shrink-0" />
-                              <span className="text-gray-300 text-sm">{feature}</span>
+                            <li key={i} className="flex items-start text-gray-300 text-sm">
+                              <CheckCircle className="h-4 w-4 text-amber-400 mr-2 mt-0.5" />
+                              {feature}
                             </li>
                           ))}
                         </ul>
                       </div>
                       
-                      <div>
-                        <h3 className="font-semibold text-white mb-1">Perfect For:</h3>
-                        <p className="text-gray-300 text-sm">{service.targetAudience}</p>
-                      </div>
-                      
                       <Link to="/contact" className="block mt-4">
-                        <Button
-                          size="sm"
-                          className="bg-gradient-to-r from-amber-400 to-yellow-500 text-black font-medium"
-                        >
-                          Get Started
-                          <ArrowRight className="ml-2 h-4 w-4" />
+                        <Button className="bg-gradient-to-r from-amber-400 to-yellow-500 text-black">
+                          Get Started <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                       </Link>
                     </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Desktop View */}
+              <div className="hidden md:grid grid-cols-2 gap-12 items-center group">
+                <div className={index % 2 === 1 ? 'order-2' : ''}>
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                      <service.icon className="h-6 w-6 text-black" />
+                    </div>
+                    <h2 className="text-3xl font-bold text-white">{service.title}</h2>
                   </div>
                   
+                  <p className="text-lg text-gray-300 mb-8">{service.description}</p>
                   
+                  <div className="mb-8">
+                    <h3 className="text-lg font-semibold text-white mb-4">Includes:</h3>
+                    <ul className="space-y-3">
+                      {service.features.map((feature, i) => (
+                        <li key={i} className="flex items-center text-gray-300">
+                          <CheckCircle className="h-5 w-5 text-amber-400 mr-3" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <Link to="/contact">
+                    <Button className="bg-gradient-to-r from-amber-400 to-yellow-500 text-black font-bold hover:shadow-lg hover:shadow-amber-400/20">
+                      Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </Link>
+                </div>
+                
+                <div className={index % 2 === 1 ? 'order-1' : ''}>
+                  <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 group-hover:shadow-2xl group-hover:shadow-amber-400/20 transition-all">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover aspect-video"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+      {/* Process Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Process</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              A proven methodology that ensures every campaign delivers exceptional results
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-4 gap-8 relative z-10">
+            <div className="absolute inset-0 z-0">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-400 opacity-5 rounded-full blur-[180px] animate-float-slow"></div>
+            </div>
+            {[
+              { step: "01", title: "Discovery", description: "We dive deep into your brand, goals, and target audience" },
+              { step: "02", title: "Strategy", description: "Develop a comprehensive campaign strategy and creator matching" },
+              { step: "03", title: "Execution", description: "Launch campaigns with our vetted creators and manage every detail" },
+              { step: "04", title: "Optimization", description: "Monitor performance and optimize for maximum ROI and engagement" }
+            ].map((phase, index) => (
+              <Card key={index} className="bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10 hover:border-amber-400/30 transition-all duration-500 backdrop-blur-sm hover:scale-[1.02] hover:shadow-2xl hover:shadow-amber-400/20 group relative">
+                <CardContent className="p-8">
+                  <div className="text-3xl font-bold text-amber-400 mb-4">{phase.step}</div>
+                  <h3 className="text-xl font-bold text-white mb-3">{phase.title}</h3>
+                  <p className="text-gray-300">{phase.description}</p>
                 </CardContent>
+            {index < 3 && (
+              <div className="hidden md:block absolute top-1/2 right-0 translate-x-full w-8 h-0.5 bg-gradient-to-r from-amber-400 to-yellow-500"></div>
+            )}
               </Card>
             ))}
           </div>
         </div>
       </section>
+
 
       <Footer />
     </div>
