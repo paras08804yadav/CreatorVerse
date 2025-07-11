@@ -3,27 +3,22 @@ import { Users, Target, Award, Heart } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { Content } from "vaul";
 
 const About = () => {
   const teamMembers = [
     {
       name: "Punnet Singh Chauhan",
-      role: "Founder",
+      role: "Content Creator",
       image: "https://media.licdn.com/dms/image/v2/D4D03AQG7pQy0llD8sQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1718287821597?e=1757548800&v=beta&t=xuc3OdpAVMMnPh-IFFV0EAQd2THSnz6CgRnQKef8eU8",
-      bio: "6+ years experience in content creation.",
+      bio: "3+ years experience",
     },
     {
-      name: "Tanisha Bhati",
-      role: "Content Writer",
-      image: "https://media.licdn.com/dms/image/v2/D4D03AQHCYjQjctgbpw/profile-displayphoto-crop_800_800/B4DZd9q8L4HAAU-/0/1750160098829?e=1757548800&v=beta&t=5oseMxrtc3AFT_EY6bzNCsl062EUk33Lgr4mWoN6v_Q",
-      bio: "3+ years experience in content writing.",
-    },
-    {
-      name: "Naman Soni",
-      role: "Head of creator partnerships",
-      image: "https://ig.socialapi-v2.workers.dev/?q=Zk3YpkB9murhltrR5XJR5do-p0TomGSRlt3RZyKh5Xgep0gMm0i-zjrtmEToBjfuOQ6omG8KmhcHOQ6HBh6EBonLOQatBQ8tih6Kih8KBQ6uBgnoBG6uiCSuBQluBQ6tBhTYiQvf4tfRZe2eWEiYpQovpETMZe2e4tcH4EBLiG2fBGcH4E3YiqDwz0iwZkTrpti-ze3xzeTMzE1vijYum0ivz0xRpE3VDE1VzjKCztY04tKC4tiV5QYLBQT04tKC4trCWJ8tloFucc6LcXnL50M_yQgxJobQ4ovoioThjebHmJiHcyLwjvoNDGxoit5CltbtDc3WlvLKit5eBG2DTxbXBypu5EcKOyrJ1xrRlor-ZXBrBtKqJJb-yGgNcEi3itMO5e5kOQ8EJQS04tKC4t5bDQoJDy3oBxJjyQD-OcKADvM2jJThBoJ310JvzGo2Gh3AJGxgTvg2Tc80ltiqWGpMijDbDorClyiFDJrAD4vr3YikioJfi0MAc0xgzYi_Tcg8jx2Ezt3WygrfjX1t3yK2ccgdmyiClCpMijD-ZQYHBgr2DxTMiy5qGC6tzESoito9DxgRzo534h3wGY5ZGGV4pvxEOgi05gpt4oFHix3E10rxWGlfihBfThaL1xrRlorhZyTrBGlYlhgv",
-      bio: "4+ years experience in creator partnerships.",
-    },
+      name: "Paras Yadav",
+      role: "Business Developer Executive",
+      image: "https://media.licdn.com/dms/image/v2/D5603AQEi1GMEv5YKYw/profile-displayphoto-shrink_800_800/B56ZRrEjltHsAg-/0/1736963145520?e=1757548800&v=beta&t=vzi9Y-5XgTQ-EQ8SE421z80wRtGRvXG8YU3WvurpH5I",
+      bio: "2+ years of experience",
+    }
   ];
 
   const values = [
@@ -156,7 +151,7 @@ const About = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {teamMembers.map((member, index) => (
               <Card key={index} className="bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10 hover:border-amber-400/30 transition-all duration-500 backdrop-blur-sm hover:scale-[1.02] hover:shadow-2xl hover:shadow-amber-400/20 group">
                 <CardContent className="p-8 text-center">
