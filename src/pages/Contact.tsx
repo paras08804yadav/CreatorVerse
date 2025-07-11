@@ -10,7 +10,6 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
 const FORM_DATA_KEY = 'creatorverse_contact_form';
-const SUBMISSIONS_KEY = 'creatorverse_submissions';
 
 const Contact = () => {
   const [searchParams] = useSearchParams();
@@ -49,7 +48,7 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbx7yzRVsbC8ozfoRvotpNp9jF3KGcOzXtITshnhsMPtjvT4qcWlhOoYHicJd_4tUu1o/exec',{
+      const response = await fetch('https://script.google.com/macros/s/AKfycbx81tYKunws1TmhG4gPU78ozNK76Ikh6tm65m1D23XkdFTRuK3jWeiNYPPfq0IeOk0M/exec',{
         method: 'POST',
         body: JSON.stringify(formData),
         mode: 'no-cors',
@@ -89,26 +88,22 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "support@creatorverse.com",
-      subtitle: "We'll respond within 4 hours"
+      details: "support@creatorverse.com"
     },
     {
       icon: Phone,
       title: "Call Us",
       details: "+91 9219135156",
-      subtitle: "Mon-Fri, 9AM-6PM PST"
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      details: "Swaroup Nagar, Kanpur Nagar, Uttar Pradesh",
-      subtitle: "Schedule an in-person meeting"
+      details: "Swaroop Nagar, Kanpur"
     },
     {
       icon: Clock,
       title: "Response Time",
-      details: "less than 24 hours",
-      subtitle: "Average first response time"
+      details: "less than 24 hours"
     }
   ];
 
@@ -146,18 +141,19 @@ const Contact = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] opacity-50"></div>
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 relative z-10">
-            {/* Contact Form */}
-            <div>
-              <h2 className="text-3xl font-bold text-white mb-6">Get Started Today</h2>
-              <p className="text-gray-300 mb-8">
-                Tell us about your project and we'll craft a custom strategy that delivers results.
-              </p>
-              
-              <form onSubmit={handleSubmit} className="space-y-6 mb-12">
+<section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+  <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] opacity-50"></div>
+  <div className="max-w-4xl mx-auto">
+    <div className="relative z-10">
+      <div className="mx-auto"> 
+        <div className="text-center mb-10"> 
+          <h2 className="text-3xl font-bold text-white mb-4">Get Started Today</h2>
+          <p className="text-gray-300 max-w-2xl mx-auto">
+            Tell us about your project and we'll craft a custom strategy that delivers results.
+          </p>
+        </div>
+        
+        <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto"> 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-white mb-2">
@@ -230,7 +226,7 @@ const Contact = () => {
                           <SelectItem value="Viral Content Production">Viral Content Production</SelectItem>
                           <SelectItem value="Content Strategy">Content Strategy</SelectItem>
                           <SelectItem value="Reel Script Writing">Reel Script Writing</SelectItem>
-                          <SelectItem value="Product Shoot">Product Shoot</SelectItem>
+                          <SelectItem value="Product Shoot">Voice Over</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -250,7 +246,6 @@ const Contact = () => {
                         <SelectContent className="bg-gray-900/90 border-white/20">
                           <SelectItem value="Instagram">Instagram</SelectItem>
                           <SelectItem value="YouTube">YouTube</SelectItem>
-                          <SelectItem value="TikTok">TikTok</SelectItem>
                           <SelectItem value="LinkedIn">LinkedIn</SelectItem>
                         </SelectContent>
                       </Select>
@@ -314,6 +309,49 @@ const Contact = () => {
         </div>
       </section>
 
+
+<section className="py-12 px-4 sm:px-6 lg:px-8 relative">
+  <div className="max-w-7xl mx-auto">
+    <div className="grid md:grid-cols-2 gap-8">
+      {/* Contact Info Card */}
+      <div className="bg-gray-900/50 border border-white/10 rounded-xl p-8 backdrop-blur-sm hover:border-amber-400/30 transition-all duration-300">
+        <h3 className="text-2xl font-bold text-white mb-8">Contact Information</h3>
+        <div className="grid md:grid-cols-2 gap-6">
+          {contactInfo.map((info, index) => (
+            <div 
+              key={index} 
+              className="flex items-start gap-4 p-4 hover:bg-gray-800/30 rounded-lg transition-colors duration-200"
+            >
+              <div className="p-3 bg-amber-400/10 rounded-lg flex-shrink-0">
+                <info.icon className="h-5 w-5 text-amber-400" />
+              </div>
+              <div className="space-y-1">
+                <h4 className="font-medium text-white text-base">{info.title}</h4>
+                <p className="text-amber-400 text-sm">{info.details}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Benefits Card */}
+      <div className="bg-gray-900/50 border border-white/10 rounded-xl p-8 backdrop-blur-sm hover:border-amber-400/30 transition-all duration-300">
+        <h3 className="text-2xl font-bold text-white mb-6">
+          Why Choose CreatorVerse
+        </h3>
+        <ul className="space-y-4">
+          {benefits.map((benefit, index) => (
+            <li key={index} className="flex items-start gap-4">
+              <CheckCircle className="h-6 w-6 text-amber-400 mt-0.5 flex-shrink-0" />
+              <span className="text-gray-300 text-base">{benefit}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
       {/* FAQ Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] relative overflow-hidden">
         {/* Animated background elements */}
@@ -321,6 +359,7 @@ const Contact = () => {
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-400 opacity-5 rounded-full blur-[140px] animate-float"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500 opacity-5 rounded-full blur-[140px] animate-float-delayed"></div>
         </div>
+        
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 relative z-10 animate-fade-in-up">
             <h2 className="text-3xl font-bold text-white mb-4">Frequently Asked Questions</h2>

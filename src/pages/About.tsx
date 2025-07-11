@@ -97,17 +97,17 @@ const About = () => {
           <span className="block transition-all duration-300 hover:text-white lg:hover:pl-2">Tired of chasing 9 to 5s they never wanted. </span></p>
           <p className="transition-all duration-300 hover:text-white lg:hover:pl-2">
             After building 100M+ views across the internet, growing multiple pages, and still facing the same question:
-            "Why is there no creator-first agency in our own city?"
+            "Why is there no creator first agency in our own city?"
           </p>
           <p className="transition-all duration-300 hover:text-white lg:hover:pl-2">
-            We realized something big was missing — not just in Kanpur, but in India's tier-2 & tier-3 cities:
+            We realized something big was missing not just in Kanpur, but in India's tier-2 & tier-3 cities:
           </p>
           <p className="transition-all duration-300 hover:text-white lg:hover:pl-2">
             No structure. No scripting. No proper influencer support.
-            Only unplanned, unpolished content — and creators getting left behind.
+            Only unplanned, unpolished content and creators getting left behind.
           </p>
           <p className="transition-all duration-300 hover:text-white lg:hover:pl-2">
-            That's when we decided — enough.
+            That's when we decided enough.
           </p>
           <p className="transition-all duration-300 hover:text-white lg:hover:pl-2">
             We didn't want to work for brands anymore.
@@ -118,11 +118,11 @@ const About = () => {
             Not just a team. Not just a company.
           </p>
           <p className="transition-all duration-300 hover:text-white lg:hover:pl-2">
-            From scripting to execution, we believe creators need more than likes —
+            From scripting to execution, we believe creators need more than likes.
             They need direction, structure, and a team that actually gets it.
           </p>
           <p className="transition-all duration-300 hover:text-white lg:hover:pl-2">
-            A revolution — for creators and brands, starting right here in Kanpur.
+            A revolution for creators and brands, starting right here in Kanpur.
           </p>
         </div>
       </div>
